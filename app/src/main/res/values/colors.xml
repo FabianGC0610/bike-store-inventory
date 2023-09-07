@@ -11,5 +11,5 @@
     <color name="black_text_color">#FF000000</color>
     <color name="white_text_color">#FFFFFFFF</color>
     <color name="grey_text_color">#FF8485A3</color>
-    <color name="box_stroke_color">#F3F3F3</color>
+    <color name="box_stroke_color">#FFF3F3F3</color>
 </resources>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <style name="LoginTitleStyle">
         <item name="android:fontFamily">@font/rock_salt</item>
         <item name="android:textSize">@dimen/login_title_text_size</item>
@@ -11,4 +12,25 @@
         <item name="android:textSize">@dimen/login_label_text_size</item>
         <item name="android:textColor">@color/white_text_color</item>
     </style>
+
+    <style name="WelcomeTitleStyle">
+        <item name="android:fontFamily">@font/amiko_semibold</item>
+        <item name="android:textSize">@dimen/login_title_text_size</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/white_text_color</item>
+    </style>
+
+    <style name="WelcomeAppNameStyle">
+        <item name="android:fontFamily">@font/rock_salt</item>
+        <item name="android:textSize">30sp</item>
+        <item name="android:textColor">@color/white_text_color</item>
+    </style>
+
+    <style name="WelcomeMessageStyle">
+        <item name="android:fontFamily">@font/amiko_semibold</item>
+        <item name="android:textStyle">italic</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/white_text_color</item>
+    </style>
+
 </resources>
