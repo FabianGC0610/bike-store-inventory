@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -30,10 +31,13 @@ class LoginFragment : Fragment() {
             false,
         )
 
-        binding.button.setOnClickListener {
+        binding.loginButton.setOnClickListener {
             val action = LoginFragmentDirections.actionLoginFragmentToWelcomeFragment()
             findNavController().navigate(action)
         }
+
+        val window = requireActivity().window
+        window.statusBarColor = ContextCompat.getColor(requireActivity(), R.color.colorPrimary)
 
         return binding.root
     }
