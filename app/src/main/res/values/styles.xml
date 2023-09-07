@@ -35,7 +35,7 @@
 
     <style name="InstructionsTitleStyle">
         <item name="android:fontFamily">@font/amiko_semibold</item>
-        <item name="android:textStyle">bold</item>
+
         <item name="android:textSize">24sp</item>
         <item name="android:textColor">@color/white_text_color</item>
     </style>
@@ -44,6 +44,13 @@
         <item name="android:fontFamily">@font/amiko_semibold</item>
         <item name="android:textSize">16sp</item>
         <item name="android:textColor">@color/white_text_color</item>
+    </style>
+
+    <style name="ListTitleStyle">
+        <item name="android:fontFamily">@font/rock_salt</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/black_text_color</item>
     </style>
 
 </resources>
