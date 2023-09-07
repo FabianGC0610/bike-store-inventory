@@ -1,2 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <style name="LoginTitleStyle">
+        <item name="android:fontFamily">@font/rock_salt</item>
+        <item name="android:textSize">@dimen/login_title_text_size</item>
+        <item name="android:textColor">@color/white_text_color</item>
+    </style>
+
+    <style name="LoginInputLabelStyle">
+        <item name="android:fontFamily">@font/amiko_semibold</item>
+        <item name="android:textSize">@dimen/login_label_text_size</item>
+        <item name="android:textColor">@color/white_text_color</item>
+    </style>
+</resources>

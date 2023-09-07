@@ -7,7 +7,7 @@ plugins {
 
 android {
     namespace = "com.fabgod.bikestoreinventory"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.fabgod.bikestoreinventory"
@@ -17,6 +17,7 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
     }
 
     buildTypes {

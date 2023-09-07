@@ -1,6 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/main_navigation">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/login_destination">
 
+    <fragment
+        android:id="@+id/login_destination"
+        android:name="com.fabgod.bikestoreinventory.login.LoginFragment"
+        android:label="login_fragment"
+        tools:layout="@layout/login_fragment" >
+        <action
+            android:id="@+id/action_loginFragment_to_welcomeFragment"
+            app:destination="@id/welcome_destination" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/welcome_destination"
+        android:name="com.fabgod.bikestoreinventory.welcome.WelcomeFragment"
+        android:label="welcome_fragment"
+        tools:layout="@layout/welcome_fragment" >
+        <action
+            android:id="@+id/action_welcomeFragment_to_instructionsFragment"
+            app:destination="@id/instructions_destination" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/instructions_destination"
+        android:name="com.fabgod.bikestoreinventory.instructions.InstructionsFragment"
+        android:label="instructions_fragment"
+        tools:layout="@layout/instructions_fragment" >
+        <action
+            android:id="@+id/action_instructionsFragment_to_listFragment"
+            app:destination="@id/list_destination" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/list_destination"
+        android:name="com.fabgod.bikestoreinventory.list.ListFragment"
+        android:label="list_fragment"
+        tools:layout="@layout/list_fragment" >
+        <action
+            android:id="@+id/action_listFragment_to_detailsFragment"
+            app:destination="@id/details_destination"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/instructions_destination" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/details_destination"
+        android:name="com.fabgod.bikestoreinventory.details.DetailsFragment"
+        android:label="details_fragment"
+        tools:layout="@layout/details_fragment" >
+        <action
+            android:id="@+id/action_detailsFragment_to_listFragment"
+            app:destination="@id/list_destination"
+            app:popUpTo="@id/instructions_destination" />
+    </fragment>
 </navigation>
