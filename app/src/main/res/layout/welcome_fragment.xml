@@ -61,10 +61,6 @@
             app:layout_constraintTop_toBottomOf="@+id/store_name"
             app:layout_constraintVertical_chainStyle="spread_inside" />
 
-        <include
-            android:id="@+id/inst_frag"
-            layout="@layout/instructions_fragment"/>
-
         <Button
             android:id="@+id/continue_button"
             android:layout_width="0dp"

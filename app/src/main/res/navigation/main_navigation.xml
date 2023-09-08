@@ -44,7 +44,7 @@
             android:id="@+id/action_listFragment_to_detailsFragment"
             app:destination="@id/details_destination"
             app:launchSingleTop="true"
-            app:popUpTo="@id/instructions_destination" />
+            app:popUpTo="@id/instructions_destination"/>
     </fragment>
 
     <fragment

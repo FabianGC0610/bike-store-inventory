@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/title"
+            style="@style/DetailsTitleStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="Add a new bike"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/image_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/bike_image_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="@dimen/icon_corner_radius_size"
+                app:cardElevation="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/bike_image"
+                    android:layout_width="128dp"
+                    android:layout_height="128dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/welcome_image" />
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <Button
+                android:id="@+id/add_image_button"
+                style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+                android:layout_width="40dp"
+                android:layout_height="48dp"
+                android:backgroundTint="@color/orange_add_button"
+                android:elevation="16dp"
+                app:icon="@drawable/add_item_icon"
+                app:iconGravity="textTop"
+                app:iconSize="24dp"
+                app:iconTint="@color/colorSecondaryDark"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:shapeAppearance="?attr/shapeAppearanceCornerExtraLarge"
+                app:strokeColor="@color/colorSecondary"
+                app:strokeWidth="3dp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/name_label"
+            style="@style/DetailsInputLabelStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="@dimen/layout_margin"
+            android:text="Name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/image_layout" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/name_edit_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/layout_margin"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="16dp"
+            android:background="@null"
+            android:textColorHint="@color/colorSecondaryDark"
+            app:boxStrokeColor="@drawable/add_box_stroke_color_selector"
+            app:boxStrokeWidth="3dp"
+            app:endIconMode="clear_text"
+            app:endIconTint="@color/colorSecondaryDark"
+            app:hintTextColor="@color/colorSecondaryDark"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/name_label">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/name_edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter the bike's name"
+                android:inputType="text|textAutoComplete|textImeMultiLine"
+                android:textColor="@color/black_text_color" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/wheel_size_label"
+            style="@style/DetailsInputLabelStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:text="Wheel size"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/name_edit_layout" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/wheel_size_edit_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/layout_margin"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="16dp"
+            android:background="@null"
+            android:textColorHint="@color/colorSecondaryDark"
+            app:boxStrokeColor="@drawable/add_box_stroke_color_selector"
+            app:boxStrokeWidth="3dp"
+            app:endIconMode="clear_text"
+            app:endIconTint="@color/colorSecondaryDark"
+            app:helperText="26, 27.5 or 29."
+            app:hintTextColor="@color/colorSecondaryDark"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/wheel_size_label">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/wheel_size_edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter the bike's wheel size"
+                android:inputType="numberDecimal"
+                android:textColor="@color/black_text_color" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/color_label"
+            style="@style/DetailsInputLabelStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:text="Color"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/wheel_size_edit_layout" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/color_edit_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/layout_margin"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="16dp"
+            android:background="@null"
+            android:textColorHint="@color/colorSecondaryDark"
+            app:boxStrokeColor="@drawable/add_box_stroke_color_selector"
+            app:boxStrokeWidth="3dp"
+            app:endIconMode="clear_text"
+            app:endIconTint="@color/colorSecondaryDark"
+            app:hintTextColor="@color/colorSecondaryDark"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/color_label">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/color_edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter the bike's color"
+                android:inputType="text|textAutoComplete|textAutoCorrect"
+                android:textColor="@color/black_text_color" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/size_label"
+            style="@style/DetailsInputLabelStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:text="Bike size"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/color_edit_layout" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/size_edit_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/layout_margin"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="16dp"
+            android:background="@null"
+            android:textColorHint="@color/colorSecondaryDark"
+            app:boxStrokeColor="@drawable/add_box_stroke_color_selector"
+            app:boxStrokeWidth="3dp"
+            app:endIconMode="clear_text"
+            app:endIconTint="@color/colorSecondaryDark"
+            app:helperText="XXS, XS, S, M, L, XL, XXL."
+            app:hintTextColor="@color/colorSecondaryDark"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/size_label">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/size_edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter the bike's size"
+                android:inputType="text|textCapCharacters"
+                android:textColor="@color/black_text_color" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/price_label"
+            style="@style/DetailsInputLabelStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:text="Price"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/size_edit_layout" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/price_edit_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/layout_margin"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="64dp"
+            android:background="@null"
+            android:textColorHint="@color/colorSecondaryDark"
+            app:boxStrokeColor="@drawable/add_box_stroke_color_selector"
+            app:boxStrokeWidth="3dp"
+            app:endIconMode="clear_text"
+            app:endIconTint="@color/colorSecondaryDark"
+            app:hintTextColor="@color/colorSecondaryDark"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/price_label"
+            app:prefixText="$">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/price_edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter the bike's price"
+                android:inputType="numberDecimal"
+                android:textColor="@color/black_text_color" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

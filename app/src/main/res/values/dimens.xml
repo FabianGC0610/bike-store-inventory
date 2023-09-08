@@ -4,4 +4,6 @@
     <dimen name="login_title_text_size">24sp</dimen>
     <dimen name="login_label_text_size">16sp</dimen>
     <dimen name="layout_margin">16dp</dimen>
+    <dimen name="menu_bar_size">80dp</dimen>
+    <dimen name="icon_corner_radius_size">128dp</dimen>
 </resources>
