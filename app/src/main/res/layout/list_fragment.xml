@@ -26,13 +26,12 @@
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/bikes_container"
+                style="@style/ListBikesContainerStyle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginHorizontal="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="124dp"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="16dp">
+                android:layout_marginHorizontal="@dimen/layout_margin"
+                android:layout_marginTop="@dimen/layout_margin"
+                android:layout_marginBottom="124dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/bikes_layout"
@@ -57,22 +56,14 @@
 
         <Button
             android:id="@+id/add_button"
-            style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
-            android:backgroundTint="@color/orange_add_button"
-            android:elevation="16dp"
+            style="@style/ListButtonStyle"
+            android:layout_width="@dimen/list_button_size"
+            android:layout_height="@dimen/list_button_size"
+            android:layout_marginEnd="@dimen/layout_margin"
+            android:layout_marginBottom="@dimen/layout_margin"
             app:icon="@drawable/add_item_icon"
-            app:iconGravity="textTop"
-            app:iconSize="32dp"
-            app:iconTint="@color/colorSecondaryDark"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:shapeAppearance="?attr/shapeAppearanceCornerLarge"
-            app:strokeColor="@color/colorSecondary"
-            app:strokeWidth="3dp" />
+            app:layout_constraintEnd_toEndOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
