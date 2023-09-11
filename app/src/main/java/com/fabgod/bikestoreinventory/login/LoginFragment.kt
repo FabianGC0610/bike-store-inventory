@@ -7,16 +7,21 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.fabgod.bikestoreinventory.R
 import com.fabgod.bikestoreinventory.databinding.LoginFragmentBinding
+import com.fabgod.bikestoreinventory.utils.SharedPreferencesInstance
 
 /**
  * Fragment where the user can set his credentials (log in or create account)
  */
 class LoginFragment : Fragment() {
 
+    private lateinit var viewModel: LoginViewModel
+    private lateinit var viewModelFactory: LoginViewModelFactory
     private lateinit var binding: LoginFragmentBinding
+    private lateinit var session: SharedPreferencesInstance
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -31,14 +36,51 @@ class LoginFragment : Fragment() {
             false,
         )
 
-        binding.loginButton.setOnClickListener {
-            val action = LoginFragmentDirections.actionLoginFragmentToWelcomeFragment()
-            findNavController().navigate(action)
+        // Set the correct color for the status bar
+        setUpStatusBar()
+
+        // Get Custom SharedPreferences class to save and check session
+        session = SharedPreferencesInstance(requireActivity())
+
+        viewModelFactory = LoginViewModelFactory(session.getSession())
+        viewModel = ViewModelProvider(this, viewModelFactory)[LoginViewModel::class.java]
+
+        binding.loginViewModel = viewModel
+        binding.lifecycleOwner = this
+
+        viewModel.isSessionSaved.observe(
+            viewLifecycleOwner,
+        ) { isSessionSaved ->
+            if (isSessionSaved) {
+                navigateToListScreen()
+            }
         }
 
-        val window = requireActivity().window
-        window.statusBarColor = ContextCompat.getColor(requireActivity(), R.color.colorPrimary)
+        viewModel.eventSessionSaved.observe(
+            viewLifecycleOwner,
+        ) { logIn ->
+            if (logIn) {
+                onLogIn()
+                viewModel.onLogInCompleteComplete()
+            }
+        }
 
         return binding.root
+    }
+
+    private fun onLogIn() {
+        session.saveSession()
+        val action = LoginFragmentDirections.actionLoginToWelcome()
+        findNavController().navigate(action)
+    }
+
+    private fun navigateToListScreen() {
+        val action = LoginFragmentDirections.actionLoginToList()
+        findNavController().navigate(action)
+    }
+
+    private fun setUpStatusBar() {
+        val window = requireActivity().window
+        window.statusBarColor = ContextCompat.getColor(requireActivity(), R.color.colorPrimary)
     }
 }

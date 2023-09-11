@@ -31,14 +31,19 @@ class WelcomeFragment : Fragment() {
             false,
         )
 
+        // Set the correct color for the status bar
+        setUpStatusBar()
+
         binding.continueButton.setOnClickListener {
-            val action = WelcomeFragmentDirections.actionWelcomeFragmentToInstructionsFragment()
+            val action = WelcomeFragmentDirections.actionWelcomeToInstructions()
             findNavController().navigate(action)
         }
 
+        return binding.root
+    }
+
+    private fun setUpStatusBar() {
         val window = requireActivity().window
         window.statusBarColor = ContextCompat.getColor(requireActivity(), R.color.colorPrimaryDark)
-
-        return binding.root
     }
 }

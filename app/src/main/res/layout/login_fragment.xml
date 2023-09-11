@@ -4,6 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".login.LoginFragment">
 
+    <data>
+        <variable
+            name="loginViewModel"
+            type="com.fabgod.bikestoreinventory.login.LoginViewModel" />
+    </data>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -120,6 +126,7 @@
                 android:backgroundTint="@color/colorPrimaryDark"
                 android:text="@string/login_log_in_button_title"
                 android:textSize="18sp"
+                android:onClick="@{() -> loginViewModel.onLogIn()}"
                 app:cornerRadius="@dimen/corner_radius_size_small"
                 app:layout_constraintBottom_toTopOf="@+id/signup_button"
                 app:layout_constraintEnd_toEndOf="parent"

@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -31,8 +32,11 @@ class ListFragment : Fragment() {
             false,
         )
 
+        // Set the correct color for the status bar
+        setUpStatusBar()
+
         binding.addButton.setOnClickListener {
-            val action = ListFragmentDirections.actionListFragmentToDetailsFragment()
+            val action = ListFragmentDirections.actionListToDetails()
             findNavController().navigate(action)
         }
 
@@ -41,5 +45,10 @@ class ListFragment : Fragment() {
         }
 
         return binding.root
+    }
+
+    private fun setUpStatusBar() {
+        val window = requireActivity().window
+        window.statusBarColor = ContextCompat.getColor(requireActivity(), R.color.colorSecondaryDark)
     }
 }

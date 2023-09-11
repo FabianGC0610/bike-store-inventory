@@ -39,5 +39,6 @@
     <string name="add_bike_edit_text_price_hint">Enter the bike\'s price</string>
     <string name="add_bike_edit_text_size_helper_text">XXS, XS, S, M, L, XL, XXL.</string>
     <string name="add_bike_edit_text_wheel_size_helper_text">26, 27.5 or 29.</string>
+    <string name="add_bike_button_title">Add bike</string>
 
 </resources>

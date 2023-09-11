@@ -211,8 +211,6 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/layout_margin"
             android:layout_marginTop="@dimen/layout_margin_extra_small"
-            android:layout_marginBottom="@dimen/layout_margin_xxx_large"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/price_label"
@@ -226,6 +224,23 @@
                 android:inputType="numberDecimal"
                 android:textColor="@color/black_text_color" />
         </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/add_button"
+            style="@style/BottomButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/button_height"
+            android:layout_marginHorizontal="@dimen/layout_margin"
+            android:layout_marginTop="@dimen/layout_margin_xxx_large"
+            android:layout_marginBottom="@dimen/layout_margin_large"
+            android:backgroundTint="@color/colorSecondary"
+            android:text="@string/add_bike_button_title"
+            android:textColor="@color/white_text_color"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/price_edit_layout"
+            app:strokeColor="@color/white_text_color" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
