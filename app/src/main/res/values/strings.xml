@@ -1,3 +1,43 @@
 <resources>
     <string name="app_name">Bike Store Inventory</string>
+
+    <!-- Common -->
+    <string name="store_name">FG Bike Store</string>
+
+    <!-- Login -->
+    <string name="login_store_image_description">Main store image</string>
+    <string name="login_email_label">Email</string>
+    <string name="login_text_input_email_hint">Enter your email</string>
+    <string name="login_password_label">Password</string>
+    <string name="login_text_input_password_hint">Enter your password</string>
+    <string name="login_log_in_button_title">Log In</string>
+    <string name="login_sign_up_button_title">Sign Up</string>
+
+    <!-- Welcome -->
+    <string name="welcome_title">WELCOME TO</string>
+    <string name="welcome_message">Your cycling shop,\nkeep pedaling…</string>
+    <string name="welcome_button_title">Continue</string>
+
+    <!-- Instructions -->
+    <string name="instructions_title">Quick Instructions</string>
+    <string name="instructions_button_title">Let\'s start</string>
+
+    <!-- Details -->
+    <string name="details_title">Details</string>
+    <string name="details_name_label">Name</string>
+    <string name="details_wheel_size_label">Wheel size</string>
+    <string name="details_color_label">Color</string>
+    <string name="details_bike_size_label">Bike size</string>
+    <string name="details_price_label">Price</string>
+
+    <!-- Add bike -->
+    <string name="add_bike_title">Add a new bike</string>
+    <string name="add_bike_edit_text_name_hint">Enter the bike\'s name</string>
+    <string name="add_bike_edit_text_wheel_size_hint">Enter the bike\'s wheel size</string>
+    <string name="add_bike_edit_text_color_hint">Enter the bike\'s color</string>
+    <string name="add_bike_edit_text_size_hint">Enter the bike\'s size</string>
+    <string name="add_bike_edit_text_price_hint">Enter the bike\'s price</string>
+    <string name="add_bike_edit_text_size_helper_text">XXS, XS, S, M, L, XL, XXL.</string>
+    <string name="add_bike_edit_text_wheel_size_helper_text">26, 27.5 or 29.</string>
+
 </resources>
