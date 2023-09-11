@@ -31,32 +31,32 @@
 
     <style name="WelcomeAppNameStyle">
         <item name="android:fontFamily">@font/rock_salt</item>
-        <item name="android:textSize">30sp</item>
+        <item name="android:textSize">@dimen/text_size_extra_large</item>
         <item name="android:textColor">@color/white_text_color</item>
     </style>
 
     <style name="WelcomeMessageStyle">
         <item name="android:fontFamily">@font/amiko_semibold</item>
         <item name="android:textStyle">italic</item>
-        <item name="android:textSize">18sp</item>
+        <item name="android:textSize">@dimen/text_size_small</item>
         <item name="android:textAlignment">center</item>
         <item name="android:textColor">@color/black_text_color</item>
     </style>
 
     <style name="InstructionsTitleStyle">
         <item name="android:fontFamily">@font/amiko_semibold</item>
-        <item name="android:textSize">24sp</item>
+        <item name="android:textSize">@dimen/text_size_large</item>
         <item name="android:textColor">@color/white_text_color</item>
     </style>
 
     <style name="InstructionsTextStyle">
         <item name="android:fontFamily">@font/amiko_semibold</item>
-        <item name="android:textSize">16sp</item>
+        <item name="android:textSize">@dimen/text_size_extra_small</item>
         <item name="android:textColor">@color/white_text_color</item>
     </style>
 
     <style name="BottomButtonStyle">
-        <item name="android:textSize">18sp</item>
+        <item name="android:textSize">@dimen/text_size_small</item>
         <item name="cornerRadius">@dimen/corner_radius_size_small</item>
         <item name="strokeColor">@color/white_text_color</item>
         <item name="strokeWidth">@dimen/box_stroke_width</item>
@@ -65,7 +65,7 @@
     <style name="ListTitleStyle">
         <item name="android:fontFamily">@font/rock_salt</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textSize">16sp</item>
+        <item name="android:textSize">@dimen/text_size_extra_small</item>
         <item name="android:textColor">@color/black_text_color</item>
     </style>
 
@@ -88,21 +88,21 @@
     <style name="DetailsTitleStyle">
         <item name="android:fontFamily">@font/amiko_semibold</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textSize">24sp</item>
+        <item name="android:textSize">@dimen/text_size_large</item>
         <item name="android:textColor">@color/black_text_color</item>
     </style>
 
     <style name="DetailsInputLabelStyle">
         <item name="android:fontFamily">@font/amiko_semibold</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textSize">20sp</item>
+        <item name="android:textSize">@dimen/text_size_medium</item>
         <item name="android:textColor">@color/grey_text_color</item>
     </style>
 
     <style name="DetailsInformationStyle">
         <item name="android:fontFamily">@font/amiko_semibold</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textSize">16sp</item>
+        <item name="android:textSize">@dimen/text_size_extra_small</item>
         <item name="android:textColor">@color/colorSecondaryDark</item>
     </style>
 
