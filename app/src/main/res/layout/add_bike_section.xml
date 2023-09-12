@@ -43,10 +43,6 @@
                     android:id="@+id/bike_image"
                     android:layout_width="@dimen/details_image_size"
                     android:layout_height="@dimen/details_image_size"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/welcome_image" />
 
             </com.google.android.material.card.MaterialCardView>
@@ -63,19 +59,19 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <TextView
-            android:id="@+id/name_label"
+            android:id="@+id/model_label"
             style="@style/DetailsInputLabelStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/layout_margin_extra_large"
             android:layout_marginTop="@dimen/layout_margin"
-            android:text="@string/details_name_label"
+            android:text="@string/details_model_label"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/image_layout" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/name_edit_layout"
+            android:id="@+id/model_edit_layout"
             style="@style/DetailsTextInputLayoutStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -83,13 +79,13 @@
             android:layout_marginTop="@dimen/layout_margin_extra_small"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/name_label">
+            app:layout_constraintTop_toBottomOf="@+id/model_label">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/name_edit"
+                android:id="@+id/model_edit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/add_bike_edit_text_name_hint"
+                android:hint="@string/add_bike_edit_text_model_hint"
                 android:inputType="text|textAutoComplete|textImeMultiLine"
                 android:textColor="@color/black_text_color" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -104,7 +100,7 @@
             android:text="@string/details_wheel_size_label"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/name_edit_layout" />
+            app:layout_constraintTop_toBottomOf="@+id/model_edit_layout" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/wheel_size_edit_layout"

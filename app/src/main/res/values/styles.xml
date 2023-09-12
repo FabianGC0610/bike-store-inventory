@@ -74,6 +74,19 @@
         <item name="cardElevation">@dimen/card_elevation</item>
     </style>
 
+    <style name="ListItemTitleStyle">
+        <item name="android:fontFamily">@font/amiko_semibold</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/text_size_small</item>
+        <item name="android:textColor">@color/black_text_color</item>
+    </style>
+
+    <style name="ListItemSubtitleStyle">
+        <item name="android:fontFamily">@font/amiko_semibold</item>
+        <item name="android:textSize">@dimen/text_size_extra_small</item>
+        <item name="android:textColor">@color/black_text_color</item>
+    </style>
+
     <style name="ListButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Icon">
         <item name="android:backgroundTint">@color/orange_add_button</item>
         <item name="android:elevation">@dimen/card_elevation</item>
