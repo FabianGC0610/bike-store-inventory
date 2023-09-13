@@ -39,6 +39,9 @@
     <dimen name="instructions_screen_padding_bottom">88dp</dimen>
     <dimen name="instructions_card_corner_radius">48dp</dimen>
     <dimen name="instructions_image_size">200dp</dimen>
+    <dimen name="instructions_image_tool_size">96dp</dimen>
+    <dimen name="instructions_image_one_size">290dp</dimen>
+    <dimen name="instructions_image_two_size">110dp</dimen>
 
     <!-- List -->
     <dimen name="list_button_size">64dp</dimen>

@@ -24,6 +24,14 @@
     <string name="instructions_title">Quick Instructions</string>
     <string name="instructions_button_title">Let\'s start</string>
     <string name="instructions_instruction_image">Instruction image</string>
+    <string name="instructions_first_instruction">On the home screen (list screen) you can see a list of available bikes.</string>
+    <string name="instructions_second_instruction">You can select any item (bike) to see its details.</string>
+    <string name="instructions_third_instruction">You have a button in the lower right corner with which you can add a new bike.</string>
+    <string name="instructions_fourth_instruction">Once an item has been selected you will go to the bike details screen.</string>
+    <string name="instructions_fifth_instruction">Once the add new bike button is selected, you will be directed to the screen where you can enter the bike data.</string>
+    <string name="instructions_sixth_instruction">You can find a bike icon pointing left in the upper left corner, it will take you to the previous screen.</string>
+    <string name="instructions_seventh_instruction">You can always find your profile icon in the upper right corner, with which you can log out.</string>
+    <string name="instructions_tool_text">Instruction</string>
     
     <!-- List -->
     <string name="list_model_format">Model: %s</string>

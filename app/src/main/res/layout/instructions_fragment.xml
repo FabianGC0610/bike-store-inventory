@@ -40,29 +40,32 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/layout_margin"
                     android:layout_marginEnd="@dimen/layout_margin"
-                    android:text="Cuando ingreses a la aplicacion veras un boton naranja que dice crear."
+                    android:text="@string/instructions_first_instruction"
                     android:textAlignment="viewEnd"
                     app:layout_constraintBottom_toBottomOf="@+id/first_instruction_image_container"
                     app:layout_constraintEnd_toStartOf="@+id/first_instruction_image_container"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/first_instruction_image_container" />
+                    app:layout_constraintTop_toTopOf="@+id/first_instruction_image_container"
+                    tools:text="@string/instructions_tool_text" />
 
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/first_instruction_image_container"
+                    style="@style/InstructionsImageContainerStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/layout_margin"
                     android:layout_marginEnd="@dimen/layout_margin"
-                    app:cardCornerRadius="@dimen/instructions_card_corner_radius"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/title">
 
                     <ImageView
                         android:id="@+id/first_instruction_image"
                         android:layout_width="@dimen/instructions_image_size"
-                        android:layout_height="@dimen/instructions_image_size"
+                        android:layout_height="@dimen/instructions_image_one_size"
                         android:contentDescription="@string/instructions_instruction_image"
-                        app:srcCompat="@drawable/welcome_image" />
+                        app:srcCompat="@drawable/instruction_image_1"
+                        tools:layout_height="@dimen/instructions_image_tool_size"
+                        tools:layout_width="@dimen/instructions_image_tool_size" />
 
                 </com.google.android.material.card.MaterialCardView>
 
@@ -73,28 +76,32 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/layout_margin"
                     android:layout_marginEnd="@dimen/layout_margin"
-                    android:text="Cuando ingreses a la aplicacion veras un boton naranja que dice crear."
+                    android:text="@string/instructions_second_instruction"
                     app:layout_constraintBottom_toBottomOf="@+id/second_instruction_image_container"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/second_instruction_image_container"
-                    app:layout_constraintTop_toTopOf="@+id/second_instruction_image_container" />
+                    app:layout_constraintTop_toTopOf="@+id/second_instruction_image_container"
+                    tools:text="@string/instructions_tool_text" />
 
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/second_instruction_image_container"
+                    style="@style/InstructionsImageContainerStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/layout_margin"
-                    android:layout_marginTop="@dimen/layout_margin"
-                    app:cardCornerRadius="@dimen/instructions_card_corner_radius"
+                    android:layout_marginTop="@dimen/layout_margin_large"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/first_instruction_image_container">
+                    app:layout_constraintTop_toBottomOf="@+id/first_instruction_image_container"
+                    tools:layout_marginTop="0dp">
 
                     <ImageView
                         android:id="@+id/second_instruction_image"
                         android:layout_width="@dimen/instructions_image_size"
-                        android:layout_height="@dimen/instructions_image_size"
+                        android:layout_height="@dimen/instructions_image_two_size"
                         android:contentDescription="@string/instructions_instruction_image"
-                        app:srcCompat="@drawable/welcome_image" />
+                        app:srcCompat="@drawable/instruction_image_2"
+                        tools:layout_height="@dimen/instructions_image_tool_size"
+                        tools:layout_width="@dimen/instructions_image_tool_size" />
 
                 </com.google.android.material.card.MaterialCardView>
 
@@ -105,29 +112,181 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/layout_margin"
                     android:layout_marginEnd="@dimen/layout_margin"
-                    android:text="Cuando ingreses a la aplicacion veras un boton naranja que dice crear."
+                    android:text="@string/instructions_third_instruction"
                     android:textAlignment="viewEnd"
                     app:layout_constraintBottom_toBottomOf="@+id/third_instruction_image_container"
                     app:layout_constraintEnd_toStartOf="@+id/third_instruction_image_container"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/third_instruction_image_container" />
+                    app:layout_constraintTop_toTopOf="@+id/third_instruction_image_container"
+                    tools:text="@string/instructions_tool_text" />
 
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/third_instruction_image_container"
+                    style="@style/InstructionsImageContainerStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/layout_margin"
+                    android:layout_marginTop="@dimen/layout_margin_large"
                     android:layout_marginEnd="@dimen/layout_margin"
-                    app:cardCornerRadius="@dimen/instructions_card_corner_radius"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/second_instruction_image_container">
+                    app:layout_constraintTop_toBottomOf="@+id/second_instruction_image_container"
+                    tools:layout_marginTop="0dp">
 
                     <ImageView
                         android:id="@+id/third_instruction_image"
                         android:layout_width="@dimen/instructions_image_size"
                         android:layout_height="@dimen/instructions_image_size"
                         android:contentDescription="@string/instructions_instruction_image"
-                        app:srcCompat="@drawable/welcome_image" />
+                        app:srcCompat="@drawable/instruction_image_3"
+                        tools:layout_height="@dimen/instructions_image_tool_size"
+                        tools:layout_width="@dimen/instructions_image_tool_size" />
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <TextView
+                    android:id="@+id/fourth_instruction"
+                    style="@style/InstructionsTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/layout_margin"
+                    android:layout_marginEnd="@dimen/layout_margin"
+                    android:text="@string/instructions_fourth_instruction"
+                    app:layout_constraintBottom_toBottomOf="@+id/fourth_instruction_image_container"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/fourth_instruction_image_container"
+                    app:layout_constraintTop_toTopOf="@+id/fourth_instruction_image_container"
+                    tools:text="@string/instructions_tool_text" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/fourth_instruction_image_container"
+                    style="@style/InstructionsImageContainerStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/layout_margin"
+                    android:layout_marginTop="@dimen/layout_margin_large"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/third_instruction_image_container"
+                    tools:layout_marginTop="0dp">
+
+                    <ImageView
+                        android:id="@+id/fourth_instruction_image"
+                        android:layout_width="@dimen/instructions_image_size"
+                        android:layout_height="@dimen/instructions_image_one_size"
+                        android:contentDescription="@string/instructions_instruction_image"
+                        app:srcCompat="@drawable/instruction_image_4"
+                        tools:layout_height="@dimen/instructions_image_tool_size"
+                        tools:layout_width="@dimen/instructions_image_tool_size" />
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <TextView
+                    android:id="@+id/fifth_instruction"
+                    style="@style/InstructionsTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/layout_margin"
+                    android:layout_marginEnd="@dimen/layout_margin"
+                    android:text="@string/instructions_fifth_instruction"
+                    android:textAlignment="viewEnd"
+                    app:layout_constraintBottom_toBottomOf="@+id/fifth_instruction_image_container"
+                    app:layout_constraintEnd_toStartOf="@+id/fifth_instruction_image_container"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/fifth_instruction_image_container"
+                    tools:text="@string/instructions_tool_text" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/fifth_instruction_image_container"
+                    style="@style/InstructionsImageContainerStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/layout_margin_large"
+                    android:layout_marginEnd="@dimen/layout_margin"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/fourth_instruction_image_container"
+                    tools:layout_marginTop="0dp">
+
+                    <ImageView
+                        android:id="@+id/fifth_instruction_image"
+                        android:layout_width="@dimen/instructions_image_size"
+                        android:layout_height="@dimen/instructions_image_one_size"
+                        android:contentDescription="@string/instructions_instruction_image"
+                        app:srcCompat="@drawable/instruction_image_5"
+                        tools:layout_height="@dimen/instructions_image_tool_size"
+                        tools:layout_width="@dimen/instructions_image_tool_size" />
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <TextView
+                    android:id="@+id/sixth_instruction"
+                    style="@style/InstructionsTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/layout_margin"
+                    android:layout_marginEnd="@dimen/layout_margin"
+                    android:text="@string/instructions_sixth_instruction"
+                    app:layout_constraintBottom_toBottomOf="@+id/sixth_instruction_image_container"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/sixth_instruction_image_container"
+                    app:layout_constraintTop_toTopOf="@+id/sixth_instruction_image_container"
+                    tools:text="@string/instructions_tool_text" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/sixth_instruction_image_container"
+                    style="@style/InstructionsImageContainerStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/layout_margin"
+                    android:layout_marginTop="@dimen/layout_margin_large"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/fifth_instruction_image_container"
+                    tools:layout_marginTop="0dp">
+
+                    <ImageView
+                        android:id="@+id/sixth_instruction_image"
+                        android:layout_width="@dimen/instructions_image_size"
+                        android:layout_height="@dimen/instructions_image_size"
+                        android:contentDescription="@string/instructions_instruction_image"
+                        app:srcCompat="@drawable/instruction_image_6"
+                        tools:layout_height="@dimen/instructions_image_tool_size"
+                        tools:layout_width="@dimen/instructions_image_tool_size" />
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <TextView
+                    android:id="@+id/seventh_instruction"
+                    style="@style/InstructionsTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/layout_margin"
+                    android:layout_marginEnd="@dimen/layout_margin"
+                    android:text="@string/instructions_seventh_instruction"
+                    android:textAlignment="viewEnd"
+                    app:layout_constraintBottom_toBottomOf="@+id/seventh_instruction_image_container"
+                    app:layout_constraintEnd_toStartOf="@+id/seventh_instruction_image_container"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/seventh_instruction_image_container"
+                    tools:text="@string/instructions_tool_text" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/seventh_instruction_image_container"
+                    style="@style/InstructionsImageContainerStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/layout_margin_large"
+                    android:layout_marginEnd="@dimen/layout_margin"
+                    android:layout_marginBottom="@dimen/layout_margin_extra_large"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/sixth_instruction_image_container"
+                    tools:layout_marginTop="0dp">
+
+                    <ImageView
+                        android:id="@+id/seventh_instruction_image"
+                        android:layout_width="@dimen/instructions_image_size"
+                        android:layout_height="@dimen/instructions_image_size"
+                        android:contentDescription="@string/instructions_instruction_image"
+                        app:srcCompat="@drawable/instruction_image_7"
+                        tools:layout_height="@dimen/instructions_image_tool_size"
+                        tools:layout_width="@dimen/instructions_image_tool_size" />
 
                 </com.google.android.material.card.MaterialCardView>
 
