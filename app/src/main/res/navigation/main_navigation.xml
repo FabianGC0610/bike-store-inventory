@@ -57,6 +57,11 @@
             android:defaultValue="@null"
             app:argType="com.fabgod.bikestoreinventory.list.model.Bikes"
             app:nullable="true" />
+        <action
+            android:id="@+id/action_list_to_login"
+            app:destination="@id/login_destination"
+            app:popUpTo="@id/list_destination"
+            app:popUpToInclusive="true" />
     </fragment>
 
     <fragment
@@ -67,7 +72,8 @@
         <action
             android:id="@+id/action_details_to_list"
             app:destination="@id/list_destination"
-            app:popUpTo="@id/instructions_destination" />
+            app:popUpTo="@id/list_destination"
+            app:popUpToInclusive="true" />
         <argument
             android:name="mode"
             android:defaultValue="0"
@@ -82,6 +88,11 @@
             android:defaultValue="@null"
             app:argType="com.fabgod.bikestoreinventory.list.model.Bikes"
             app:nullable="true" />
+        <action
+            android:id="@+id/action_details_to_login"
+            app:destination="@id/login_destination"
+            app:popUpTo="@id/list_destination"
+            app:popUpToInclusive="true" />
     </fragment>
 
 </navigation>

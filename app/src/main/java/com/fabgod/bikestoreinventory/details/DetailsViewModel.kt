@@ -39,6 +39,9 @@ class DetailsViewModel(mode: Int, bikeList: Bikes?, bike: Bike?) : ViewModel() {
     private val _eventBikeAdded = MutableLiveData<Boolean>()
     val eventBikeAdded: LiveData<Boolean> get() = _eventBikeAdded
 
+    private val _eventLogOut = MutableLiveData<Boolean>()
+    val eventLogOut: LiveData<Boolean> get() = _eventLogOut
+
     init {
         Log.i("LoginViewModel", "Mode and Bike List gotten")
         _mode.value = mode
@@ -106,6 +109,14 @@ class DetailsViewModel(mode: Int, bikeList: Bikes?, bike: Bike?) : ViewModel() {
 
     fun onBikeAddedComplete() {
         _eventBikeAdded.value = false
+    }
+
+    fun onLogOut() {
+        _eventLogOut.value = true
+    }
+
+    fun onLogOutComplete() {
+        _eventLogOut.value = false
     }
 
     sealed class FieldState {

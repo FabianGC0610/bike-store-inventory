@@ -14,8 +14,10 @@ import androidx.navigation.fragment.navArgs
 import com.fabgod.bikestoreinventory.R
 import com.fabgod.bikestoreinventory.databinding.DetailsFragmentBinding
 import com.fabgod.bikestoreinventory.list.ListFragment
+import com.fabgod.bikestoreinventory.list.ListFragmentDirections
 import com.fabgod.bikestoreinventory.list.model.Bike
 import com.fabgod.bikestoreinventory.list.model.Bikes
+import com.fabgod.bikestoreinventory.utils.SharedPreferencesInstance
 import com.fabgod.bikestoreinventory.utils.getRandomBikeImageResource
 import com.google.android.material.textfield.TextInputLayout
 
@@ -26,6 +28,7 @@ class DetailsFragment : Fragment() {
 
     private lateinit var viewModel: DetailsViewModel
     private lateinit var binding: DetailsFragmentBinding
+    private lateinit var session: SharedPreferencesInstance
     private lateinit var viewModelFactory: DetailsViewModelFactory
     private val bikeImageToAdd = getRandomBikeImageResource()
 
@@ -45,6 +48,9 @@ class DetailsFragment : Fragment() {
         // Set the correct color for the status bar
         setUpStatusBar()
 
+        // Get SharedPreferencesInstance class to save and check session
+        session = SharedPreferencesInstance(requireActivity())
+
         val detailsFragmentArgs by navArgs<DetailsFragmentArgs>()
 
         viewModelFactory = DetailsViewModelFactory(
@@ -61,11 +67,23 @@ class DetailsFragment : Fragment() {
         binding.menuBar.backArrow.setOnClickListener {
             onBackAction()
         }
+        binding.menuBar.profileImage.setOnClickListener {
+            viewModel.onLogOut()
+        }
 
         viewModel.mode.observe(
             viewLifecycleOwner,
         ) { mode ->
             showSection(mode, detailsFragmentArgs.bike ?: Bike())
+        }
+
+        viewModel.eventLogOut.observe(
+            viewLifecycleOwner,
+        ) { logOut ->
+            if (logOut) {
+                onLogOut()
+                viewModel.onLogOutComplete()
+            }
         }
 
         setTextChangedValidations()
@@ -251,6 +269,12 @@ class DetailsFragment : Fragment() {
         onSizeValidation()
         onPriceValidation()
         viewModel.validateForm()
+    }
+
+    private fun onLogOut() {
+        session.deleteSession()
+        val action = DetailsFragmentDirections.actionDetailsToLogin()
+        findNavController().navigate(action)
     }
 
     private fun onBikeAdded() {
