@@ -3,6 +3,7 @@
 
     <!-- Common -->
     <string name="store_name">FG Bike Store</string>
+    <string name="field_error_message">Field required</string>
 
     <!-- Login -->
     <string name="login_store_image_description">Main store image</string>
@@ -17,10 +18,12 @@
     <string name="welcome_title">WELCOME TO</string>
     <string name="welcome_message">Your cycling shop,\nkeep pedaling…</string>
     <string name="welcome_button_title">Continue</string>
+    <string name="welcome_image_description">Welcome image</string>
 
     <!-- Instructions -->
     <string name="instructions_title">Quick Instructions</string>
     <string name="instructions_button_title">Let\'s start</string>
+    <string name="instructions_instruction_image">Instruction image</string>
     
     <!-- List -->
     <string name="list_model_format">Model: %s</string>
@@ -34,6 +37,7 @@
     <string name="details_color_label">Color</string>
     <string name="details_bike_size_label">Bike size</string>
     <string name="details_price_label">Price</string>
+    <string name="details_price_format">$%s</string>
 
     <!-- Add bike -->
     <string name="add_bike_title">Add a new bike</string>
@@ -45,5 +49,13 @@
     <string name="add_bike_edit_text_size_helper_text">XXS, XS, S, M, L, XL, XXL.</string>
     <string name="add_bike_edit_text_wheel_size_helper_text">26, 27.5 or 29.</string>
     <string name="add_bike_button_title">Add bike</string>
+    <string name="add_bike_image_description">Add bike image</string>
 
+    <!-- Bike item -->
+    <string name="bike_item_image_description">Bike image</string>
+
+    <!-- Menu bar -->
+    <string name="menu_bar_back_arrow_description">Navigate back</string>
+    <string name="menu_bar_profile_image_description">Profile image</string>
+    <string name="menu_bar_menu_icon_description">Menu</string>
 </resources>

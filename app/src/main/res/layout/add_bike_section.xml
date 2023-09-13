@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="detailsViewModel"
+            type="com.fabgod.bikestoreinventory.details.DetailsViewModel" />
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/add_bike_section_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        tools:visibility="visible">
 
         <TextView
             android:id="@+id/title"
@@ -43,7 +52,9 @@
                     android:id="@+id/bike_image"
                     android:layout_width="@dimen/details_image_size"
                     android:layout_height="@dimen/details_image_size"
-                    app:srcCompat="@drawable/welcome_image" />
+                    android:scaleType="centerCrop"
+                    android:contentDescription="@string/add_bike_image_description"
+                    tools:srcCompat="@drawable/random_bike_image_1" />
 
             </com.google.android.material.card.MaterialCardView>
 
@@ -232,6 +243,7 @@
             android:backgroundTint="@color/colorSecondary"
             android:text="@string/add_bike_button_title"
             android:textColor="@color/white_text_color"
+            android:onClick="@{() -> detailsViewModel.onBikeAdded()}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

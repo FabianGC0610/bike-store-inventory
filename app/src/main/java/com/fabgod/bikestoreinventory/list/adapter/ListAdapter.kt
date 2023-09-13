@@ -11,7 +11,7 @@ import com.fabgod.bikestoreinventory.list.model.Bike
 
 class ListAdapter(
     private var context: Context,
-    private var bikes: List<Bike>,
+    private var bikes: MutableList<Bike>,
     private val onClickListener: (Bike) -> Unit,
 ) : RecyclerView.Adapter<ListAdapter.ListHolder>() {
 
@@ -31,6 +31,9 @@ class ListAdapter(
                 model.text = context.getString(R.string.list_model_format, bike.model)
                 color.text = context.getString(R.string.list_color_format, bike.color)
                 price.text = context.getString(R.string.list_price_format, bike.price)
+                bikeItemLayout.setOnClickListener {
+                    onClickListener(bike)
+                }
             }
         }
     }

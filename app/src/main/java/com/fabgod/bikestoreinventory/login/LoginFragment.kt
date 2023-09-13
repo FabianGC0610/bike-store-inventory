@@ -39,7 +39,7 @@ class LoginFragment : Fragment() {
         // Set the correct color for the status bar
         setUpStatusBar()
 
-        // Get Custom SharedPreferences class to save and check session
+        // Get SharedPreferencesInstance class to save and check session
         session = SharedPreferencesInstance(requireActivity())
 
         viewModelFactory = LoginViewModelFactory(session.getSession())

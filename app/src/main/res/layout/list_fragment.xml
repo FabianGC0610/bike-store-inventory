@@ -5,7 +5,6 @@
     tools:context=".list.ListFragment">
 
     <data>
-
         <variable
             name="listViewModel"
             type="com.fabgod.bikestoreinventory.list.ListViewModel" />
@@ -34,8 +33,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/bikes_layout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@null">
+                android:layout_height="wrap_content">
 
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/bikes_container"
@@ -75,6 +73,7 @@
             android:layout_height="@dimen/list_button_size"
             android:layout_marginEnd="@dimen/layout_margin"
             android:layout_marginBottom="@dimen/layout_margin"
+            android:onClick="@{() -> listViewModel.onAddBike()}"
             app:icon="@drawable/add_item_icon"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />

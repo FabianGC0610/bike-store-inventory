@@ -6,7 +6,9 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/details_section_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        tools:visibility="visible">
 
         <TextView
             android:id="@+id/title"
@@ -35,7 +37,9 @@
                 android:id="@+id/bike_image"
                 android:layout_width="@dimen/details_image_size"
                 android:layout_height="@dimen/details_image_size"
-                app:srcCompat="@drawable/welcome_image" />
+                android:scaleType="centerCrop"
+                android:contentDescription="@string/bike_item_image_description"
+                tools:srcCompat="@drawable/random_bike_image_6" />
 
         </com.google.android.material.card.MaterialCardView>
 

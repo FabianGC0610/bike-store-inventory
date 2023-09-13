@@ -61,6 +61,7 @@
                         android:id="@+id/first_instruction_image"
                         android:layout_width="@dimen/instructions_image_size"
                         android:layout_height="@dimen/instructions_image_size"
+                        android:contentDescription="@string/instructions_instruction_image"
                         app:srcCompat="@drawable/welcome_image" />
 
                 </com.google.android.material.card.MaterialCardView>
@@ -92,6 +93,7 @@
                         android:id="@+id/second_instruction_image"
                         android:layout_width="@dimen/instructions_image_size"
                         android:layout_height="@dimen/instructions_image_size"
+                        android:contentDescription="@string/instructions_instruction_image"
                         app:srcCompat="@drawable/welcome_image" />
 
                 </com.google.android.material.card.MaterialCardView>
@@ -124,6 +126,7 @@
                         android:id="@+id/third_instruction_image"
                         android:layout_width="@dimen/instructions_image_size"
                         android:layout_height="@dimen/instructions_image_size"
+                        android:contentDescription="@string/instructions_instruction_image"
                         app:srcCompat="@drawable/welcome_image" />
 
                 </com.google.android.material.card.MaterialCardView>

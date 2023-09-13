@@ -9,7 +9,7 @@
         android:id="@+id/login_destination"
         android:name="com.fabgod.bikestoreinventory.login.LoginFragment"
         android:label="login_fragment"
-        tools:layout="@layout/login_fragment" >
+        tools:layout="@layout/login_fragment">
         <action
             android:id="@+id/action_login_to_welcome"
             app:destination="@id/welcome_destination" />
@@ -17,14 +17,14 @@
             android:id="@+id/action_login_to_list"
             app:destination="@id/list_destination"
             app:popUpTo="@id/login_destination"
-            app:popUpToInclusive="true"/>
+            app:popUpToInclusive="true" />
     </fragment>
 
     <fragment
         android:id="@+id/welcome_destination"
         android:name="com.fabgod.bikestoreinventory.welcome.WelcomeFragment"
         android:label="welcome_fragment"
-        tools:layout="@layout/welcome_fragment" >
+        tools:layout="@layout/welcome_fragment">
         <action
             android:id="@+id/action_welcome_to_instructions"
             app:destination="@id/instructions_destination" />
@@ -34,35 +34,54 @@
         android:id="@+id/instructions_destination"
         android:name="com.fabgod.bikestoreinventory.instructions.InstructionsFragment"
         android:label="instructions_fragment"
-        tools:layout="@layout/instructions_fragment" >
+        tools:layout="@layout/instructions_fragment">
         <action
             android:id="@+id/action_instructions_to_list"
             app:destination="@id/list_destination"
             app:popUpTo="@id/login_destination"
-            app:popUpToInclusive="true"/>
+            app:popUpToInclusive="true" />
     </fragment>
 
     <fragment
         android:id="@+id/list_destination"
         android:name="com.fabgod.bikestoreinventory.list.ListFragment"
         android:label="list_fragment"
-        tools:layout="@layout/list_fragment" >
+        tools:layout="@layout/list_fragment">
         <action
             android:id="@+id/action_list_to_details"
             app:destination="@id/details_destination"
             app:launchSingleTop="true"
-            app:popUpTo="@id/instructions_destination"/>
+            app:popUpTo="@id/instructions_destination" />
+        <argument
+            android:name="bike_list"
+            android:defaultValue="@null"
+            app:argType="com.fabgod.bikestoreinventory.list.model.Bikes"
+            app:nullable="true" />
     </fragment>
 
     <fragment
         android:id="@+id/details_destination"
         android:name="com.fabgod.bikestoreinventory.details.DetailsFragment"
         android:label="details_fragment"
-        tools:layout="@layout/details_fragment" >
+        tools:layout="@layout/details_fragment">
         <action
             android:id="@+id/action_details_to_list"
             app:destination="@id/list_destination"
             app:popUpTo="@id/instructions_destination" />
+        <argument
+            android:name="mode"
+            android:defaultValue="0"
+            app:argType="integer" />
+        <argument
+            android:name="bike"
+            android:defaultValue="@null"
+            app:argType="com.fabgod.bikestoreinventory.list.model.Bike"
+            app:nullable="true" />
+        <argument
+            android:name="bike_list"
+            android:defaultValue="@null"
+            app:argType="com.fabgod.bikestoreinventory.list.model.Bikes"
+            app:nullable="true" />
     </fragment>
 
 </navigation>
