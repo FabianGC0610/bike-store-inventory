@@ -43,6 +43,8 @@
                 style="@style/DetailsImageContainerStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/layout_margin_xx_large"
+                android:layout_marginVertical="@dimen/layout_margin_xx_large"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -63,6 +65,8 @@
                 style="@style/DetailsImageButtonStyle"
                 android:layout_width="@dimen/add_bike_image_button_width"
                 android:layout_height="@dimen/add_bike_image_button_height"
+                android:layout_marginEnd="@dimen/layout_margin_xx_large"
+                android:layout_marginBottom="@dimen/layout_margin_xx_large"
                 app:icon="@drawable/add_item_icon"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" />

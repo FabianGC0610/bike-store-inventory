@@ -29,6 +29,7 @@
                 android:clickable="true"
                 android:contentDescription="@string/menu_bar_back_arrow_description"
                 android:focusable="true"
+                android:tooltipText="@string/menu_bar_back_arrow_tooltip_text"
                 android:visibility="gone"
                 app:srcCompat="@drawable/back_arrow"
                 tools:visibility="visible" />
@@ -55,6 +56,7 @@
                 android:clickable="true"
                 android:contentDescription="@string/menu_bar_menu_icon_description"
                 android:focusable="true"
+                android:tooltipText="@string/menu_bar_open_menu_tooltip_text"
                 android:visibility="gone"
                 app:srcCompat="@drawable/menu_icon" />
 
@@ -89,6 +91,7 @@
                 android:layout_width="@dimen/menu_bar_icon_size"
                 android:layout_height="@dimen/menu_bar_icon_size"
                 android:contentDescription="@string/menu_bar_profile_image_description"
+                android:tooltipText="@string/menu_bar_log_out_tooltip_text"
                 app:srcCompat="@drawable/profile_image" />
 
         </com.google.android.material.card.MaterialCardView>
