@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="detailsViewModel"
+            type="com.fabgod.bikestoreinventory.details.DetailsViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/add_bike_section_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <TextView
+            android:id="@+id/title"
+            style="@style/DetailsTitleStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/layout_margin"
+            android:layout_marginTop="@dimen/layout_margin"
+            android:layout_marginEnd="@dimen/layout_margin"
+            android:text="@string/add_bike_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/image_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/layout_margin_extra_large"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/bike_image_container"
+                style="@style/DetailsImageContainerStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/layout_margin_xx_large"
+                android:layout_marginVertical="@dimen/layout_margin_xx_large"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/bike_image"
+                    android:layout_width="@dimen/details_image_size"
+                    android:layout_height="@dimen/details_image_size"
+                    android:scaleType="centerCrop"
+                    android:contentDescription="@string/add_bike_image_description"
+                    tools:srcCompat="@drawable/random_bike_image_1" />
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <Button
+                android:id="@+id/add_image_button"
+                style="@style/DetailsImageButtonStyle"
+                android:layout_width="@dimen/add_bike_image_button_width"
+                android:layout_height="@dimen/add_bike_image_button_height"
+                android:layout_marginEnd="@dimen/layout_margin_xx_large"
+                android:layout_marginBottom="@dimen/layout_margin_xx_large"
+                app:icon="@drawable/add_item_icon"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/model_label"
+            style="@style/DetailsInputLabelStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/layout_margin_extra_large"
+            android:layout_marginTop="@dimen/layout_margin"
+            android:text="@string/details_model_label"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/image_layout" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/model_edit_layout"
+            style="@style/DetailsTextInputLayoutStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/layout_margin"
+            android:layout_marginTop="@dimen/layout_margin_extra_small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/model_label">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/model_edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/add_bike_edit_text_model_hint"
+                android:inputType="text|textAutoComplete|textImeMultiLine"
+                android:textColor="@color/black_text_color" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/wheel_size_label"
+            style="@style/DetailsInputLabelStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/layout_margin_extra_large"
+            android:layout_marginTop="@dimen/layout_margin"
+            android:text="@string/details_wheel_size_label"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/model_edit_layout" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/wheel_size_edit_layout"
+            style="@style/DetailsTextInputLayoutStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/layout_margin"
+            android:layout_marginTop="@dimen/layout_margin_extra_small"
+            app:helperText="@string/add_bike_edit_text_wheel_size_helper_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/wheel_size_label">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/wheel_size_edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/add_bike_edit_text_wheel_size_hint"
+                android:inputType="numberDecimal"
+                android:textColor="@color/black_text_color" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/color_label"
+            style="@style/DetailsInputLabelStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/layout_margin_extra_large"
+            android:layout_marginTop="@dimen/layout_margin"
+            android:text="@string/details_color_label"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/wheel_size_edit_layout" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/color_edit_layout"
+            style="@style/DetailsTextInputLayoutStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/layout_margin"
+            android:layout_marginTop="@dimen/layout_margin_extra_small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/color_label">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/color_edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/add_bike_edit_text_color_hint"
+                android:inputType="text|textAutoComplete|textAutoCorrect"
+                android:textColor="@color/black_text_color" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/size_label"
+            style="@style/DetailsInputLabelStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/layout_margin_extra_large"
+            android:layout_marginTop="@dimen/layout_margin"
+            android:text="@string/details_bike_size_label"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/color_edit_layout" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/size_edit_layout"
+            style="@style/DetailsTextInputLayoutStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/layout_margin"
+            android:layout_marginTop="@dimen/layout_margin_extra_small"
+            app:helperText="@string/add_bike_edit_text_size_helper_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/size_label">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/size_edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/add_bike_edit_text_size_hint"
+                android:inputType="text|textCapCharacters"
+                android:textColor="@color/black_text_color" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/price_label"
+            style="@style/DetailsInputLabelStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/layout_margin_extra_large"
+            android:layout_marginTop="@dimen/layout_margin"
+            android:text="@string/details_price_label"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/size_edit_layout" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/price_edit_layout"
+            style="@style/DetailsTextInputLayoutStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/layout_margin"
+            android:layout_marginTop="@dimen/layout_margin_extra_small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/price_label"
+            app:prefixText="$">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/price_edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/add_bike_edit_text_price_hint"
+                android:inputType="numberDecimal"
+                android:textColor="@color/black_text_color" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/add_button"
+            style="@style/BottomButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/button_height"
+            android:layout_marginHorizontal="@dimen/layout_margin"
+            android:layout_marginTop="@dimen/layout_margin_xxx_large"
+            android:layout_marginBottom="@dimen/layout_margin_large"
+            android:backgroundTint="@color/colorSecondary"
+            android:text="@string/add_bike_button_title"
+            android:textColor="@color/white_text_color"
+            android:onClick="@{() -> detailsViewModel.onBikeAdded()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/price_edit_layout"
+            app:strokeColor="@color/white_text_color" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

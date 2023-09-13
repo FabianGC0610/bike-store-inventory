@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Common -->
+    <dimen name="box_stroke_width">2dp</dimen>
+    <dimen name="box_stroke_width_large">3dp</dimen>
+    <dimen name="corner_radius_size">24dp</dimen>
+    <dimen name="corner_radius_size_small">16dp</dimen>
+    <dimen name="icon_corner_radius_size">128dp</dimen>
+    <dimen name="button_height">56dp</dimen>
+    <dimen name="card_elevation">16dp</dimen>
+    <dimen name="text_size_extra_small">16sp</dimen>
+    <dimen name="text_size_small">18sp</dimen>
+    <dimen name="text_size_medium">20sp</dimen>
+    <dimen name="text_size_large">24sp</dimen>
+    <dimen name="text_size_extra_large">30sp</dimen>
+    <dimen name="bike_item_image_size">96dp</dimen>
+
+    <!-- Margins -->
+    <dimen name="layout_margin">16dp</dimen>
+    <dimen name="layout_margin_small">8dp</dimen>
+    <dimen name="layout_margin_extra_small">4dp</dimen>
+    <dimen name="layout_margin_large">24dp</dimen>
+    <dimen name="layout_margin_extra_large">32dp</dimen>
+    <dimen name="layout_margin_xx_large">48dp</dimen>
+    <dimen name="layout_margin_xxx_large">64dp</dimen>
+
+    <!-- Menu bar -->
+    <dimen name="menu_bar_size">80dp</dimen>
+    <dimen name="menu_bar_icon_size">64dp</dimen>
+
+    <!-- Login -->
+    <dimen name="login_title_text_size">24sp</dimen>
+    <dimen name="login_label_text_size">16sp</dimen>
+    <dimen name="login_text_height">48dp</dimen>
+    <dimen name="login_text_input_layout_height">64dp</dimen>
+
+    <!-- Instructions -->
+    <dimen name="instructions_screen_padding_bottom">88dp</dimen>
+    <dimen name="instructions_card_corner_radius">48dp</dimen>
+    <dimen name="instructions_image_size">200dp</dimen>
+    <dimen name="instructions_image_tool_size">96dp</dimen>
+    <dimen name="instructions_image_one_size">290dp</dimen>
+    <dimen name="instructions_image_two_size">110dp</dimen>
+
+    <!-- List -->
+    <dimen name="list_button_size">64dp</dimen>
+    <dimen name="list_icon_button_size">32dp</dimen>
+    <dimen name="list_margin_bottom">124dp</dimen>
+
+    <!-- Details -->
+    <dimen name="details_image_size">128dp</dimen>
+
+    <!-- Add bike -->
+    <dimen name="add_bike_image_button_width">40dp</dimen>
+    <dimen name="add_bike_image_button_height">48dp</dimen>
+    <dimen name="add_bike_image_button_icon_size">24dp</dimen>
+
+</resources>
