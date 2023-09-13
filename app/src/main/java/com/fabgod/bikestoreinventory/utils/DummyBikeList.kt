@@ -9,7 +9,7 @@ val dummyBikeList = mutableListOf(
         wheelSize = "27.5",
         color = "Red",
         size = "L",
-        price = "10,000.00",
+        price = "10000",
         imageResource = R.drawable.dummy_bike_image_1,
     ),
     Bike(
@@ -17,7 +17,7 @@ val dummyBikeList = mutableListOf(
         wheelSize = "29",
         color = "Orange/Yellow",
         size = "M",
-        price = "12,500.00",
+        price = "12500",
         imageResource = R.drawable.dummy_bike_image_2,
     ),
     Bike(
@@ -25,7 +25,7 @@ val dummyBikeList = mutableListOf(
         wheelSize = "29",
         color = "Grey/Green",
         size = "XL",
-        price = "9,000.00",
+        price = "9000",
         imageResource = R.drawable.dummy_bike_image_3,
     ),
     Bike(
@@ -33,7 +33,7 @@ val dummyBikeList = mutableListOf(
         wheelSize = "27.5",
         color = "Black",
         size = "L",
-        price = "14,500.00",
+        price = "14500",
         imageResource = R.drawable.dummy_bike_image_4,
     ),
     Bike(
@@ -41,7 +41,7 @@ val dummyBikeList = mutableListOf(
         wheelSize = "29",
         color = "White",
         size = "M",
-        price = "7,000.00",
+        price = "7000",
         imageResource = R.drawable.dummy_bike_image_5,
     ),
     Bike(
@@ -49,7 +49,7 @@ val dummyBikeList = mutableListOf(
         wheelSize = "29",
         color = "Red/Yellow",
         size = "XL",
-        price = "8,000.00",
+        price = "8000",
         imageResource = R.drawable.dummy_bike_image_6,
     ),
     Bike(
@@ -57,7 +57,7 @@ val dummyBikeList = mutableListOf(
         wheelSize = "29",
         color = "Black/Grey",
         size = "XXS",
-        price = "9,500.00",
+        price = "9500",
         imageResource = R.drawable.dummy_bike_image_7,
     ),
 )

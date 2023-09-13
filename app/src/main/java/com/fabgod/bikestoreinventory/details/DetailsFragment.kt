@@ -14,11 +14,11 @@ import androidx.navigation.fragment.navArgs
 import com.fabgod.bikestoreinventory.R
 import com.fabgod.bikestoreinventory.databinding.DetailsFragmentBinding
 import com.fabgod.bikestoreinventory.list.ListFragment
-import com.fabgod.bikestoreinventory.list.ListFragmentDirections
 import com.fabgod.bikestoreinventory.list.model.Bike
 import com.fabgod.bikestoreinventory.list.model.Bikes
 import com.fabgod.bikestoreinventory.utils.SharedPreferencesInstance
 import com.fabgod.bikestoreinventory.utils.getRandomBikeImageResource
+import com.fabgod.bikestoreinventory.utils.toBalanceFormat
 import com.google.android.material.textfield.TextInputLayout
 
 /**
@@ -167,7 +167,8 @@ class DetailsFragment : Fragment() {
             wheelSizeInformation.text = bike.wheelSize
             colorInformation.text = bike.color
             sizeInformation.text = bike.size
-            priceInformation.text = getString(R.string.details_price_format, bike.price)
+            priceInformation.text =
+                getString(R.string.details_price_format, bike.price.toBalanceFormat())
             bikeImage.setImageResource(bike.imageResource)
         }
     }

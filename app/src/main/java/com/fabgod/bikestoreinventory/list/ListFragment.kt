@@ -16,7 +16,6 @@ import com.fabgod.bikestoreinventory.databinding.ListFragmentBinding
 import com.fabgod.bikestoreinventory.list.adapter.ListAdapter
 import com.fabgod.bikestoreinventory.list.model.Bike
 import com.fabgod.bikestoreinventory.list.model.Bikes
-import com.fabgod.bikestoreinventory.login.LoginFragmentDirections
 import com.fabgod.bikestoreinventory.utils.SharedPreferencesInstance
 import com.fabgod.bikestoreinventory.utils.dummyBikeList
 

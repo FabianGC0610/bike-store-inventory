@@ -4,78 +4,92 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".welcome.WelcomeFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/welcome_layout"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/welcome_background"
-        android:backgroundTint="@color/purple_add_button">
+        android:fillViewport="true">
 
-        <ImageView
-            android:id="@+id/welcome_image"
-            android:layout_width="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/welcome_layout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/layout_margin_xxx_large"
-            android:src="@drawable/welcome_image"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:contentDescription="@string/welcome_image_description" />
+            android:background="@drawable/welcome_background"
+            android:backgroundTint="@color/purple_add_button">
 
-        <TextView
-            android:id="@+id/title"
-            style="@style/WelcomeTitleStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/layout_margin_xxx_large"
-            android:text="@string/welcome_title"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/welcome_image" />
+            <ImageView
+                android:id="@+id/welcome_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/layout_margin_xxx_large"
+                android:contentDescription="@string/welcome_image_description"
+                android:src="@drawable/welcome_image"
+                app:layout_constraintBottom_toTopOf="@+id/texts_layout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="spread_inside" />
 
-        <TextView
-            android:id="@+id/store_name"
-            style="@style/WelcomeAppNameStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/layout_margin_extra_large"
-            android:text="@string/store_name"
-            android:textColor="@color/black_text_color"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/title" />
+            <LinearLayout
+                android:id="@+id/texts_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/layout_margin"
+                android:layout_marginBottom="@dimen/layout_margin"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toTopOf="@+id/continue_button"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/welcome_image"
+                app:layout_constraintVertical_chainStyle="spread_inside">
 
-        <TextView
-            android:id="@+id/message"
-            style="@style/WelcomeMessageStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/layout_margin_extra_large"
-            android:layout_marginBottom="@dimen/layout_margin_large"
-            android:text="@string/welcome_message"
-            app:layout_constraintBottom_toTopOf="@+id/continue_button"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/store_name"
-            app:layout_constraintVertical_chainStyle="spread_inside" />
+                <TextView
+                    android:id="@+id/title"
+                    style="@style/WelcomeTitleStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/welcome_title" />
 
-        <Button
-            android:id="@+id/continue_button"
-            style="@style/BottomButtonStyle"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/button_height"
-            android:layout_marginHorizontal="@dimen/layout_margin"
-            android:layout_marginBottom="@dimen/layout_margin"
-            android:backgroundTint="@color/colorPrimary"
-            android:text="@string/welcome_button_title"
-            android:textColor="@color/white_text_color"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/message" />
+                <TextView
+                    android:id="@+id/store_name"
+                    style="@style/WelcomeAppNameStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/layout_margin_extra_large"
+                    android:text="@string/store_name"
+                    android:textColor="@color/black_text_color" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                <TextView
+                    android:id="@+id/message"
+                    style="@style/WelcomeMessageStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/layout_margin_extra_large"
+                    android:layout_marginBottom="@dimen/layout_margin_large"
+                    android:text="@string/welcome_message" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/continue_button"
+                style="@style/BottomButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/button_height"
+                android:layout_marginHorizontal="@dimen/layout_margin"
+                android:layout_marginBottom="@dimen/layout_margin"
+                android:backgroundTint="@color/colorPrimary"
+                android:text="@string/welcome_button_title"
+                android:textColor="@color/white_text_color"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/texts_layout" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
 
 </layout>

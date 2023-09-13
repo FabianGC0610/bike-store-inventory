@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.fabgod.bikestoreinventory.R
 import com.fabgod.bikestoreinventory.databinding.BikeItemBinding
 import com.fabgod.bikestoreinventory.list.model.Bike
+import com.fabgod.bikestoreinventory.utils.toBalanceFormat
 
 class ListAdapter(
     private var context: Context,
@@ -30,7 +31,7 @@ class ListAdapter(
                 image.setImageResource(bike.imageResource)
                 model.text = context.getString(R.string.list_model_format, bike.model)
                 color.text = context.getString(R.string.list_color_format, bike.color)
-                price.text = context.getString(R.string.list_price_format, bike.price)
+                price.text = context.getString(R.string.list_price_format, bike.price.toBalanceFormat())
                 bikeItemLayout.setOnClickListener {
                     onClickListener(bike)
                 }

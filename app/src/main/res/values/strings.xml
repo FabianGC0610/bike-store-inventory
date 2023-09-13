@@ -28,7 +28,8 @@
     <!-- List -->
     <string name="list_model_format">Model: %s</string>
     <string name="list_color_format">Color: %s</string>
-    <string name="list_price_format">Price: $%s</string>
+    <string name="list_price_format">Price: %s</string>
+    <string name="list_add_new_bike_button_tooltip_text">Add new bike</string>
 
     <!-- Details -->
     <string name="details_title">Details</string>
@@ -37,7 +38,7 @@
     <string name="details_color_label">Color</string>
     <string name="details_bike_size_label">Bike size</string>
     <string name="details_price_label">Price</string>
-    <string name="details_price_format">$%s</string>
+    <string name="details_price_format">%s</string>
 
     <!-- Add bike -->
     <string name="add_bike_title">Add a new bike</string>
