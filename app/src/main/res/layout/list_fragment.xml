@@ -4,6 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".list.ListFragment">
 
+    <data>
+        <variable
+            name="listViewModel"
+            type="com.fabgod.bikestoreinventory.list.ListViewModel" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/list_layout"
         android:layout_width="match_parent"
@@ -24,20 +30,24 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/menu_bar">
 
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/bikes_container"
-                style="@style/ListBikesContainerStyle"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/bikes_layout"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginHorizontal="@dimen/layout_margin"
-                android:layout_marginTop="@dimen/layout_margin"
-                android:layout_marginBottom="124dp">
+                android:layout_height="wrap_content">
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/bikes_layout"
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/bikes_container"
+                    style="@style/ListBikesContainerStyle"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@color/list_background">
+                    android:layout_marginHorizontal="@dimen/layout_margin"
+                    android:layout_marginTop="@dimen/layout_margin"
+                    android:layout_marginBottom="@dimen/list_margin_bottom"
+                    android:backgroundTint="@color/list_background"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/bikes_list"
@@ -46,11 +56,13 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:itemCount="5"
+                        tools:listitem="@layout/bike_item" />
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                </com.google.android.material.card.MaterialCardView>
 
-            </com.google.android.material.card.MaterialCardView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.core.widget.NestedScrollView>
 
@@ -61,7 +73,9 @@
             android:layout_height="@dimen/list_button_size"
             android:layout_marginEnd="@dimen/layout_margin"
             android:layout_marginBottom="@dimen/layout_margin"
+            android:onClick="@{() -> listViewModel.onAddBike()}"
             app:icon="@drawable/add_item_icon"
+            android:tooltipText="@string/list_add_new_bike_button_tooltip_text"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 

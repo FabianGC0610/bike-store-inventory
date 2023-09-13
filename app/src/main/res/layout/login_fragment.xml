@@ -4,6 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".login.LoginFragment">
 
+    <data>
+        <variable
+            name="loginViewModel"
+            type="com.fabgod.bikestoreinventory.login.LoginViewModel" />
+    </data>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -21,9 +27,12 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/background"
                 app:cardElevation="0dp"
+                app:layout_constraintBottom_toTopOf="@+id/login_button"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="spread_inside">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -64,9 +73,9 @@
                         style="@style/LoginTextInputLayoutStyle"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/login_text_input_layout_height"
-                        app:endIconMode="clear_text"
                         android:layout_marginHorizontal="@dimen/layout_margin"
-                        android:layout_marginBottom="@dimen/layout_margin">
+                        android:layout_marginBottom="@dimen/layout_margin"
+                        app:endIconMode="clear_text">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/email_edit"
@@ -118,8 +127,9 @@
                 android:layout_marginTop="@dimen/layout_margin"
                 android:layout_marginBottom="@dimen/layout_margin"
                 android:backgroundTint="@color/colorPrimaryDark"
+                android:onClick="@{() -> loginViewModel.onLogIn()}"
                 android:text="@string/login_log_in_button_title"
-                android:textSize="18sp"
+                android:textSize="@dimen/text_size_small"
                 app:cornerRadius="@dimen/corner_radius_size_small"
                 app:layout_constraintBottom_toTopOf="@+id/signup_button"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -137,13 +147,12 @@
                 android:layout_marginBottom="@dimen/layout_margin"
                 android:text="@string/login_sign_up_button_title"
                 android:textColor="@color/colorPrimaryDark"
-                android:textSize="18sp"
+                android:textSize="@dimen/text_size_small"
                 app:cornerRadius="@dimen/corner_radius_size_small"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/login_button"
                 app:strokeColor="@color/colorPrimaryDark"
                 app:strokeWidth="@dimen/box_stroke_width" />
 
