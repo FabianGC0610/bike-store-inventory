@@ -28,8 +28,8 @@ class ListFragment : Fragment() {
 
     private lateinit var viewModel: ListViewModel
     private lateinit var binding: ListFragmentBinding
+    private lateinit var viewModelFactory: ListViewModelFactory
     private lateinit var listAdapter: ListAdapter
-    private lateinit var drawerLayout: DrawerLayout
     private var bikeList = dummyBikeList
 
     override fun onCreateView(
@@ -48,7 +48,8 @@ class ListFragment : Fragment() {
         // Set the correct color for the status bar
         setUpStatusBar()
 
-        viewModel = ViewModelProvider(this)[ListViewModel::class.java]
+        viewModelFactory = ListViewModelFactory(R.id.drawerLayout)
+        viewModel = ViewModelProvider(this, viewModelFactory)[ListViewModel::class.java]
 
         binding.listViewModel = viewModel
         binding.lifecycleOwner = this
@@ -56,8 +57,6 @@ class ListFragment : Fragment() {
         binding.menuBar.lifecycleOwner = this
 
         binding.menuBar.menuIcon.visibility = View.VISIBLE
-
-        drawerLayout = requireActivity().findViewById(R.id.drawerLayout)
 
         getBikeList()
 
@@ -121,6 +120,8 @@ class ListFragment : Fragment() {
     }
 
     private fun onOpenMenu() {
+        val drawerLayout =
+            requireActivity().findViewById<DrawerLayout>(viewModel.drawerLayoutId.value ?: 0)
         drawerLayout.openDrawer(GravityCompat.START)
     }
 

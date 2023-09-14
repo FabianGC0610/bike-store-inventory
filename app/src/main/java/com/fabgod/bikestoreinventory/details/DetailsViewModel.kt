@@ -58,7 +58,7 @@ class DetailsViewModel(mode: Int, bikeList: Bikes?, bike: Bike?) : ViewModel() {
     val eventBackAction: LiveData<Boolean> get() = _eventBackAction
 
     init {
-        Log.i("LoginViewModel", "Mode and Bike List gotten")
+        Log.i("DetailsViewModel", "Mode and Bike List gotten")
         _mode.value = mode
         _list.value = bikeList ?: Bikes()
         _bike.value = bike ?: Bike()
