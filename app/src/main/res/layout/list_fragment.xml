@@ -5,6 +5,7 @@
     tools:context=".list.ListFragment">
 
     <data>
+
         <variable
             name="listViewModel"
             type="com.fabgod.bikestoreinventory.list.ListViewModel" />
@@ -74,8 +75,8 @@
             android:layout_marginEnd="@dimen/layout_margin"
             android:layout_marginBottom="@dimen/layout_margin"
             android:onClick="@{() -> listViewModel.onAddBike()}"
-            app:icon="@drawable/add_item_icon"
             android:tooltipText="@string/list_add_new_bike_button_tooltip_text"
+            app:icon="@drawable/add_item_icon"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 

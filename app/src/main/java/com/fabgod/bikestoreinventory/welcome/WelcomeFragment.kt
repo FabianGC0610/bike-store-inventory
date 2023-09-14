@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.fabgod.bikestoreinventory.R
 import com.fabgod.bikestoreinventory.databinding.WelcomeFragmentBinding
@@ -16,6 +17,7 @@ import com.fabgod.bikestoreinventory.databinding.WelcomeFragmentBinding
  */
 class WelcomeFragment : Fragment() {
 
+    private lateinit var viewModel: WelcomeViewModel
     private lateinit var binding: WelcomeFragmentBinding
 
     override fun onCreateView(
@@ -34,12 +36,26 @@ class WelcomeFragment : Fragment() {
         // Set the correct color for the status bar
         setUpStatusBar()
 
-        binding.continueButton.setOnClickListener {
-            val action = WelcomeFragmentDirections.actionWelcomeToInstructions()
-            findNavController().navigate(action)
+        viewModel = ViewModelProvider(this)[WelcomeViewModel::class.java]
+
+        binding.welcomeViewModel = viewModel
+        binding.lifecycleOwner = this
+
+        viewModel.eventButtonClicked.observe(
+            viewLifecycleOwner,
+        ) { buttonClicked ->
+            if (buttonClicked) {
+                onButtonClicked()
+                viewModel.onButtonClickedComplete()
+            }
         }
 
         return binding.root
+    }
+
+    private fun onButtonClicked() {
+        val action = WelcomeFragmentDirections.actionWelcomeToInstructions()
+        findNavController().navigate(action)
     }
 
     private fun setUpStatusBar() {

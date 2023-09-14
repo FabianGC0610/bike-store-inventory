@@ -32,7 +32,7 @@
     <string name="instructions_sixth_instruction">You can find a bike icon pointing left in the upper left corner, it will take you to the previous screen.</string>
     <string name="instructions_seventh_instruction">You can always find your profile icon in the upper right corner, with which you can log out.</string>
     <string name="instructions_tool_text">Instruction</string>
-    
+
     <!-- List -->
     <string name="list_model_format">Model: %s</string>
     <string name="list_color_format">Color: %s</string>
@@ -46,7 +46,6 @@
     <string name="details_color_label">Color</string>
     <string name="details_bike_size_label">Bike size</string>
     <string name="details_price_label">Price</string>
-    <string name="details_price_format">%s</string>
 
     <!-- Add bike -->
     <string name="add_bike_title">Add a new bike</string>
@@ -63,7 +62,9 @@
     <!-- Bike item -->
     <string name="bike_item_image_description">Bike image</string>
 
-    <!-- Menu bar -->
+    <!-- Menu -->
+    <string name="menu_log_out">Log out</string>
+
     <string name="menu_bar_back_arrow_description">Navigate back</string>
     <string name="menu_bar_profile_image_description">Profile image</string>
     <string name="menu_bar_menu_icon_description">Menu</string>

@@ -16,7 +16,6 @@ import com.fabgod.bikestoreinventory.databinding.DetailsFragmentBinding
 import com.fabgod.bikestoreinventory.list.ListFragment
 import com.fabgod.bikestoreinventory.list.model.Bike
 import com.fabgod.bikestoreinventory.list.model.Bikes
-import com.fabgod.bikestoreinventory.utils.SharedPreferencesInstance
 import com.fabgod.bikestoreinventory.utils.getRandomBikeImageResource
 import com.fabgod.bikestoreinventory.utils.toBalanceFormat
 import com.google.android.material.textfield.TextInputLayout
@@ -28,7 +27,6 @@ class DetailsFragment : Fragment() {
 
     private lateinit var viewModel: DetailsViewModel
     private lateinit var binding: DetailsFragmentBinding
-    private lateinit var session: SharedPreferencesInstance
     private lateinit var viewModelFactory: DetailsViewModelFactory
     private val bikeImageToAdd = getRandomBikeImageResource()
 
@@ -48,9 +46,6 @@ class DetailsFragment : Fragment() {
         // Set the correct color for the status bar
         setUpStatusBar()
 
-        // Get SharedPreferencesInstance class to save and check session
-        session = SharedPreferencesInstance(requireActivity())
-
         val detailsFragmentArgs by navArgs<DetailsFragmentArgs>()
 
         viewModelFactory = DetailsViewModelFactory(
@@ -61,28 +56,21 @@ class DetailsFragment : Fragment() {
         viewModel = ViewModelProvider(this, viewModelFactory)[DetailsViewModel::class.java]
 
         binding.menuBar.backArrow.visibility = View.VISIBLE
-        binding.addBikeSection.detailsViewModel = viewModel
-        binding.addBikeSection.lifecycleOwner = this
 
-        binding.menuBar.backArrow.setOnClickListener {
-            onBackAction()
-        }
-        binding.menuBar.profileImage.setOnClickListener {
-            viewModel.onLogOut()
-        }
+        setUpBindingWithViewModel()
 
         viewModel.mode.observe(
             viewLifecycleOwner,
         ) { mode ->
-            showSection(mode, detailsFragmentArgs.bike ?: Bike())
+            showSection(mode)
         }
 
-        viewModel.eventLogOut.observe(
+        viewModel.eventBackAction.observe(
             viewLifecycleOwner,
-        ) { logOut ->
-            if (logOut) {
-                onLogOut()
-                viewModel.onLogOutComplete()
+        ) { backAction ->
+            if (backAction) {
+                onBackAction()
+                viewModel.onBackActionComplete()
             }
         }
 
@@ -161,20 +149,18 @@ class DetailsFragment : Fragment() {
         }
     }
 
-    private fun populateViews(bike: Bike) {
-        binding.detailsSection.apply {
-            modelInformation.text = bike.model
-            wheelSizeInformation.text = bike.wheelSize
-            colorInformation.text = bike.color
-            sizeInformation.text = bike.size
-            priceInformation.text =
-                getString(R.string.details_price_format, bike.price.toBalanceFormat())
-            bikeImage.setImageResource(bike.imageResource)
-        }
+    private fun setUpBindingWithViewModel() {
+        binding.addBikeSection.detailsViewModel = viewModel
+        binding.addBikeSection.lifecycleOwner = this
+        binding.detailsSection.detailsViewModel = viewModel
+        binding.detailsSection.lifecycleOwner = this
+        binding.menuBar.detailsViewModel = viewModel
+        binding.menuBar.lifecycleOwner = this
     }
 
     private fun onModelValidationTextChanged() {
-        binding.addBikeSection.modelEditLayout.editText?.doOnTextChanged { _, _, _, _ ->
+        binding.addBikeSection.modelEditLayout.editText?.doOnTextChanged { text, _, _, _ ->
+            viewModel.updateModel(text.toString())
             onModelValidation()
         }
     }
@@ -184,7 +170,8 @@ class DetailsFragment : Fragment() {
     }
 
     private fun onWheelSizeValidationTextChanged() {
-        binding.addBikeSection.wheelSizeEditLayout.editText?.doOnTextChanged { _, _, _, _ ->
+        binding.addBikeSection.wheelSizeEditLayout.editText?.doOnTextChanged { text, _, _, _ ->
+            viewModel.updateWheelSize(text.toString())
             onWheelSizeValidation()
         }
     }
@@ -194,7 +181,8 @@ class DetailsFragment : Fragment() {
     }
 
     private fun onColorValidationTextChanged() {
-        binding.addBikeSection.colorEditLayout.editText?.doOnTextChanged { _, _, _, _ ->
+        binding.addBikeSection.colorEditLayout.editText?.doOnTextChanged { text, _, _, _ ->
+            viewModel.updateColor(text.toString())
             onColorValidation()
         }
     }
@@ -204,7 +192,8 @@ class DetailsFragment : Fragment() {
     }
 
     private fun onSizeValidationTextChanged() {
-        binding.addBikeSection.sizeEditLayout.editText?.doOnTextChanged { _, _, _, _ ->
+        binding.addBikeSection.sizeEditLayout.editText?.doOnTextChanged { text, _, _, _ ->
+            viewModel.updateSize(text.toString())
             onSizeValidation()
         }
     }
@@ -214,7 +203,8 @@ class DetailsFragment : Fragment() {
     }
 
     private fun onPriceValidationTextChanged() {
-        binding.addBikeSection.priceEditLayout.editText?.doOnTextChanged { _, _, _, _ ->
+        binding.addBikeSection.priceEditLayout.editText?.doOnTextChanged { text, _, _, _ ->
+            viewModel.updatePrice(text.toString())
             onPriceValidation()
         }
     }
@@ -238,7 +228,7 @@ class DetailsFragment : Fragment() {
                 wheelSize = wheelSizeEditLayout.editText?.text.toString(),
                 color = colorEditLayout.editText?.text.toString(),
                 size = sizeEditLayout.editText?.text.toString(),
-                price = priceEditLayout.editText?.text.toString(),
+                price = priceEditLayout.editText?.text.toString().toBalanceFormat(),
                 imageResource = bikeImageToAdd,
             )
         }
@@ -252,10 +242,9 @@ class DetailsFragment : Fragment() {
         view.error = null
     }
 
-    private fun showSection(mode: Int, bike: Bike) {
+    private fun showSection(mode: Int) {
         if (mode == ListFragment.SEE_DETAILS_MODE) {
             binding.detailsSection.detailsSectionLayout.visibility = View.VISIBLE
-            populateViews(bike)
         } else {
             binding.addBikeSection.addBikeSectionLayout.visibility = View.VISIBLE
             binding.addBikeSection.bikeImage.setImageResource(bikeImageToAdd)
@@ -270,12 +259,6 @@ class DetailsFragment : Fragment() {
         onSizeValidation()
         onPriceValidation()
         viewModel.validateForm()
-    }
-
-    private fun onLogOut() {
-        session.deleteSession()
-        val action = DetailsFragmentDirections.actionDetailsToLogin()
-        findNavController().navigate(action)
     }
 
     private fun onBikeAdded() {

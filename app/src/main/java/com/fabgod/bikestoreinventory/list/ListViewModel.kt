@@ -20,9 +20,6 @@ class ListViewModel : ViewModel() {
     private val _eventAddBike = MutableLiveData<Boolean>()
     val eventAddBike: LiveData<Boolean> get() = _eventAddBike
 
-    private val _eventLogOut = MutableLiveData<Boolean>()
-    val eventLogOut: LiveData<Boolean> get() = _eventLogOut
-
     fun saveList(bikes: Bikes) {
         _list.value = bikes
     }
@@ -45,13 +42,5 @@ class ListViewModel : ViewModel() {
 
     fun onAddBikeComplete() {
         _eventAddBike.value = false
-    }
-
-    fun onLogOut() {
-        _eventLogOut.value = true
-    }
-
-    fun onLogOutComplete() {
-        _eventLogOut.value = false
     }
 }

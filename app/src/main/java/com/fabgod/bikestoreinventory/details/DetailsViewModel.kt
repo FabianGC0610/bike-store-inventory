@@ -27,6 +27,21 @@ class DetailsViewModel(mode: Int, bikeList: Bikes?, bike: Bike?) : ViewModel() {
     private val _isFormValid = MutableLiveData<Boolean>()
     val isFormValid: LiveData<Boolean> get() = _isFormValid
 
+    private val _model = MutableLiveData<String>()
+    val model: LiveData<String> get() = _model
+
+    private val _wheelSize = MutableLiveData<String>()
+    val wheelSize: LiveData<String> get() = _wheelSize
+
+    private val _color = MutableLiveData<String>()
+    val color: LiveData<String> get() = _color
+
+    private val _size = MutableLiveData<String>()
+    val size: LiveData<String> get() = _size
+
+    private val _price = MutableLiveData<String>()
+    val price: LiveData<String> get() = _price
+
     private val _list = MutableLiveData<Bikes>()
     val list: LiveData<Bikes> get() = _list
 
@@ -39,8 +54,8 @@ class DetailsViewModel(mode: Int, bikeList: Bikes?, bike: Bike?) : ViewModel() {
     private val _eventBikeAdded = MutableLiveData<Boolean>()
     val eventBikeAdded: LiveData<Boolean> get() = _eventBikeAdded
 
-    private val _eventLogOut = MutableLiveData<Boolean>()
-    val eventLogOut: LiveData<Boolean> get() = _eventLogOut
+    private val _eventBackAction = MutableLiveData<Boolean>()
+    val eventBackAction: LiveData<Boolean> get() = _eventBackAction
 
     init {
         Log.i("LoginViewModel", "Mode and Bike List gotten")
@@ -103,6 +118,26 @@ class DetailsViewModel(mode: Int, bikeList: Bikes?, bike: Bike?) : ViewModel() {
         }
     }
 
+    fun updateModel(value: String) {
+        _model.value = value
+    }
+
+    fun updateWheelSize(value: String) {
+        _wheelSize.value = value
+    }
+
+    fun updateColor(value: String) {
+        _color.value = value
+    }
+
+    fun updateSize(value: String) {
+        _size.value = value
+    }
+
+    fun updatePrice(value: String) {
+        _price.value = value
+    }
+
     fun onBikeAdded() {
         _eventBikeAdded.value = true
     }
@@ -111,12 +146,12 @@ class DetailsViewModel(mode: Int, bikeList: Bikes?, bike: Bike?) : ViewModel() {
         _eventBikeAdded.value = false
     }
 
-    fun onLogOut() {
-        _eventLogOut.value = true
+    fun onBackAction() {
+        _eventBackAction.value = true
     }
 
-    fun onLogOutComplete() {
-        _eventLogOut.value = false
+    fun onBackActionComplete() {
+        _eventBackAction.value = false
     }
 
     sealed class FieldState {

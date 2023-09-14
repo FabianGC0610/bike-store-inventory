@@ -5,6 +5,7 @@
     tools:context=".login.LoginFragment">
 
     <data>
+
         <variable
             name="loginViewModel"
             type="com.fabgod.bikestoreinventory.login.LoginViewModel" />

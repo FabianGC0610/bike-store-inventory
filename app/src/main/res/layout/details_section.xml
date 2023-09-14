@@ -3,6 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="detailsViewModel"
+            type="com.fabgod.bikestoreinventory.details.DetailsViewModel" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/details_section_layout"
         android:layout_width="match_parent"
@@ -39,6 +45,7 @@
                 android:layout_height="@dimen/details_image_size"
                 android:scaleType="centerCrop"
                 android:contentDescription="@string/bike_item_image_description"
+                app:imageResource="@{detailsViewModel.bike.component6()}"
                 tools:srcCompat="@drawable/random_bike_image_6" />
 
         </com.google.android.material.card.MaterialCardView>
@@ -63,6 +70,7 @@
             android:layout_marginStart="@dimen/layout_margin_small"
             android:layout_marginTop="@dimen/layout_margin_small"
             android:layout_marginEnd="@dimen/layout_margin_extra_large"
+            android:text="@{detailsViewModel.bike.component1()}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/model_label"
             app:layout_constraintTop_toBottomOf="@+id/model_label"
@@ -88,6 +96,7 @@
             android:layout_marginStart="@dimen/layout_margin_small"
             android:layout_marginTop="@dimen/layout_margin_small"
             android:layout_marginEnd="@dimen/layout_margin_extra_large"
+            android:text="@{detailsViewModel.bike.component2()}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/wheel_size_label"
             app:layout_constraintTop_toBottomOf="@+id/wheel_size_label"
@@ -113,6 +122,7 @@
             android:layout_marginStart="@dimen/layout_margin_small"
             android:layout_marginTop="@dimen/layout_margin_small"
             android:layout_marginEnd="@dimen/layout_margin_extra_large"
+            android:text="@{detailsViewModel.bike.component3()}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/color_label"
             app:layout_constraintTop_toBottomOf="@+id/color_label"
@@ -138,6 +148,7 @@
             android:layout_marginStart="@dimen/layout_margin_small"
             android:layout_marginTop="@dimen/layout_margin_small"
             android:layout_marginEnd="@dimen/layout_margin_extra_large"
+            android:text="@{detailsViewModel.bike.component4()}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/size_label"
             app:layout_constraintTop_toBottomOf="@+id/size_label"
@@ -164,6 +175,7 @@
             android:layout_marginTop="@dimen/layout_margin_small"
             android:layout_marginEnd="@dimen/layout_margin_extra_large"
             android:layout_marginBottom="@dimen/layout_margin_xxx_large"
+            android:text="@{detailsViewModel.bike.component5()}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/price_label"

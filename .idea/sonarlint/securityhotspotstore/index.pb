@@ -17,3 +17,9 @@ z
 Japp/src/main/java/com/fabgod/bikestoreinventory/welcome/WelcomeFragment.kt,6\2\62e28b8c63f737b9f172298d46a76c1799b8cce1
 t
 Dapp/src/main/java/com/fabgod/bikestoreinventory/list/ListFragment.kt,1\c\1cc773b5daf11b2dda6334514892061677715348
+9
+	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
+w
+Gapp/src/main/java/com/fabgod/bikestoreinventory/login/LoginViewModel.kt,e\6\e68eb9c2dc7da71bd73d02ee6c0ffa1accbd6fc0
+{
+Kapp/src/main/java/com/fabgod/bikestoreinventory/welcome/WelcomeViewModel.kt,1\7\1731884b9d95c0ef5f292389fcf13b7f57adbc0d
