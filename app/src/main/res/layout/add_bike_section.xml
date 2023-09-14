@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="detailsViewModel"
             type="com.fabgod.bikestoreinventory.details.DetailsViewModel" />
@@ -54,8 +55,8 @@
                     android:id="@+id/bike_image"
                     android:layout_width="@dimen/details_image_size"
                     android:layout_height="@dimen/details_image_size"
-                    android:scaleType="centerCrop"
                     android:contentDescription="@string/add_bike_image_description"
+                    android:scaleType="centerCrop"
                     tools:srcCompat="@drawable/random_bike_image_1" />
 
             </com.google.android.material.card.MaterialCardView>
@@ -102,6 +103,7 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/add_bike_edit_text_model_hint"
                 android:inputType="text|textAutoComplete|textImeMultiLine"
+                android:text="@{detailsViewModel.model}"
                 android:textColor="@color/black_text_color" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -135,6 +137,7 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/add_bike_edit_text_wheel_size_hint"
                 android:inputType="numberDecimal"
+                android:text="@{detailsViewModel.wheelSize}"
                 android:textColor="@color/black_text_color" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -167,6 +170,7 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/add_bike_edit_text_color_hint"
                 android:inputType="text|textAutoComplete|textAutoCorrect"
+                android:text="@{detailsViewModel.color}"
                 android:textColor="@color/black_text_color" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -200,6 +204,7 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/add_bike_edit_text_size_hint"
                 android:inputType="text|textCapCharacters"
+                android:text="@{detailsViewModel.size}"
                 android:textColor="@color/black_text_color" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -233,6 +238,7 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/add_bike_edit_text_price_hint"
                 android:inputType="numberDecimal"
+                android:text="@{detailsViewModel.price}"
                 android:textColor="@color/black_text_color" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -245,9 +251,9 @@
             android:layout_marginTop="@dimen/layout_margin_xxx_large"
             android:layout_marginBottom="@dimen/layout_margin_large"
             android:backgroundTint="@color/colorSecondary"
+            android:onClick="@{() -> detailsViewModel.onBikeAdded()}"
             android:text="@string/add_bike_button_title"
             android:textColor="@color/white_text_color"
-            android:onClick="@{() -> detailsViewModel.onBikeAdded()}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

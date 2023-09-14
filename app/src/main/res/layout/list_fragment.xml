@@ -5,12 +5,13 @@
     tools:context=".list.ListFragment">
 
     <data>
+
         <variable
             name="listViewModel"
             type="com.fabgod.bikestoreinventory.list.ListViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/list_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -18,31 +19,30 @@
 
         <include
             android:id="@+id/menu_bar"
-            layout="@layout/menu_bar"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            layout="@layout/menu_bar" />
 
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/menu_bar">
+            android:layout_marginTop="@dimen/menu_bar_size"
+            app:layout_anchor="@id/menu_bar"
+            app:layout_anchorGravity="bottom">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <LinearLayout
                 android:id="@+id/bikes_layout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/bikes_container"
                     style="@style/ListBikesContainerStyle"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="0dp"
                     android:layout_marginHorizontal="@dimen/layout_margin"
                     android:layout_marginTop="@dimen/layout_margin"
-                    android:layout_marginBottom="@dimen/list_margin_bottom"
+                    android:layout_marginBottom="@dimen/layout_margin_large"
+                    android:layout_weight="0.5"
                     android:backgroundTint="@color/list_background"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -62,23 +62,21 @@
 
                 </com.google.android.material.card.MaterialCardView>
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
 
         </androidx.core.widget.NestedScrollView>
 
-        <Button
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/add_button"
-            style="@style/ListButtonStyle"
-            android:layout_width="@dimen/list_button_size"
-            android:layout_height="@dimen/list_button_size"
-            android:layout_marginEnd="@dimen/layout_margin"
-            android:layout_marginBottom="@dimen/layout_margin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:layout_margin="@dimen/layout_margin"
+            android:backgroundTint="@color/colorSecondary"
             android:onClick="@{() -> listViewModel.onAddBike()}"
-            app:icon="@drawable/add_item_icon"
-            android:tooltipText="@string/list_add_new_bike_button_tooltip_text"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            android:src="@drawable/add_item_icon"
+            android:tooltipText="@string/list_add_new_bike_button_tooltip_text" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 </layout>

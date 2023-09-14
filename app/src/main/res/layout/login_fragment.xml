@@ -5,6 +5,7 @@
     tools:context=".login.LoginFragment">
 
     <data>
+
         <variable
             name="loginViewModel"
             type="com.fabgod.bikestoreinventory.login.LoginViewModel" />
@@ -145,6 +146,7 @@
                 android:layout_height="@dimen/button_height"
                 android:layout_marginHorizontal="@dimen/layout_margin"
                 android:layout_marginBottom="@dimen/layout_margin"
+                android:onClick="@{() -> loginViewModel.onLogIn()}"
                 android:text="@string/login_sign_up_button_title"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="@dimen/text_size_small"

@@ -30,9 +30,9 @@
     <string name="instructions_fourth_instruction">Once an item has been selected you will go to the bike details screen.</string>
     <string name="instructions_fifth_instruction">Once the add new bike button is selected, you will be directed to the screen where you can enter the bike data.</string>
     <string name="instructions_sixth_instruction">You can find a bike icon pointing left in the upper left corner, it will take you to the previous screen.</string>
-    <string name="instructions_seventh_instruction">You can always find your profile icon in the upper right corner, with which you can log out.</string>
+    <string name="instructions_seventh_instruction">You can find a menu icon in the upper right corner, with which you can open a drawer layout where you can log out.</string>
     <string name="instructions_tool_text">Instruction</string>
-    
+
     <!-- List -->
     <string name="list_model_format">Model: %s</string>
     <string name="list_color_format">Color: %s</string>
@@ -46,7 +46,6 @@
     <string name="details_color_label">Color</string>
     <string name="details_bike_size_label">Bike size</string>
     <string name="details_price_label">Price</string>
-    <string name="details_price_format">%s</string>
 
     <!-- Add bike -->
     <string name="add_bike_title">Add a new bike</string>
@@ -63,11 +62,11 @@
     <!-- Bike item -->
     <string name="bike_item_image_description">Bike image</string>
 
-    <!-- Menu bar -->
+    <!-- Menu -->
+    <string name="menu_log_out">Log out</string>
     <string name="menu_bar_back_arrow_description">Navigate back</string>
     <string name="menu_bar_profile_image_description">Profile image</string>
     <string name="menu_bar_menu_icon_description">Menu</string>
     <string name="menu_bar_back_arrow_tooltip_text">Navigate Back</string>
     <string name="menu_bar_open_menu_tooltip_text">Open Menu</string>
-    <string name="menu_bar_log_out_tooltip_text">Log Out</string>
 </resources>

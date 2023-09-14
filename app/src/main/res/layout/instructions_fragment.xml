@@ -4,6 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".instructions.InstructionsFragment">
 
+    <data>
+
+        <variable
+            name="instructionsViewModel"
+            type="com.fabgod.bikestoreinventory.instructions.InstructionsViewModel" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/instructions_layout"
         android:layout_width="match_parent"
@@ -302,6 +309,7 @@
             android:layout_marginHorizontal="@dimen/layout_margin"
             android:layout_marginBottom="@dimen/layout_margin"
             android:backgroundTint="@color/colorSecondary"
+            android:onClick="@{() -> instructionsViewModel.onButtonClicked()}"
             android:text="@string/instructions_button_title"
             android:textColor="@color/white_text_color"
             app:layout_constraintBottom_toBottomOf="parent"

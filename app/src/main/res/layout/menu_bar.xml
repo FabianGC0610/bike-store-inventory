@@ -3,6 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <variable
+            name="detailsViewModel"
+            type="com.fabgod.bikestoreinventory.details.DetailsViewModel" />
+
+        <variable
+            name="listViewModel"
+            type="com.fabgod.bikestoreinventory.list.ListViewModel" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/menu_bar_layout"
         android:layout_width="match_parent"
@@ -29,6 +40,7 @@
                 android:clickable="true"
                 android:contentDescription="@string/menu_bar_back_arrow_description"
                 android:focusable="true"
+                android:onClick="@{() -> detailsViewModel.onBackAction()}"
                 android:tooltipText="@string/menu_bar_back_arrow_tooltip_text"
                 android:visibility="gone"
                 app:srcCompat="@drawable/back_arrow"
@@ -56,6 +68,7 @@
                 android:clickable="true"
                 android:contentDescription="@string/menu_bar_menu_icon_description"
                 android:focusable="true"
+                android:onClick="@{() -> listViewModel.onOpenMenu()}"
                 android:tooltipText="@string/menu_bar_open_menu_tooltip_text"
                 android:visibility="gone"
                 app:srcCompat="@drawable/menu_icon" />
@@ -91,7 +104,6 @@
                 android:layout_width="@dimen/menu_bar_icon_size"
                 android:layout_height="@dimen/menu_bar_icon_size"
                 android:contentDescription="@string/menu_bar_profile_image_description"
-                android:tooltipText="@string/menu_bar_log_out_tooltip_text"
                 app:srcCompat="@drawable/profile_image" />
 
         </com.google.android.material.card.MaterialCardView>
