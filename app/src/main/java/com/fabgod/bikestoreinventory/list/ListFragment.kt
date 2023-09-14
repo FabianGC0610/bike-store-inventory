@@ -2,19 +2,13 @@ package com.fabgod.bikestoreinventory.list
 
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.Menu
-import android.view.MenuInflater
-import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.core.view.MenuHost
-import androidx.core.view.MenuProvider
+import androidx.core.view.GravityCompat
 import androidx.databinding.DataBindingUtil
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -35,6 +29,7 @@ class ListFragment : Fragment() {
     private lateinit var viewModel: ListViewModel
     private lateinit var binding: ListFragmentBinding
     private lateinit var listAdapter: ListAdapter
+    private lateinit var drawerLayout: DrawerLayout
     private var bikeList = dummyBikeList
 
     override fun onCreateView(
@@ -57,8 +52,12 @@ class ListFragment : Fragment() {
 
         binding.listViewModel = viewModel
         binding.lifecycleOwner = this
+        binding.menuBar.listViewModel = viewModel
+        binding.menuBar.lifecycleOwner = this
 
         binding.menuBar.menuIcon.visibility = View.VISIBLE
+
+        drawerLayout = requireActivity().findViewById(R.id.drawerLayout)
 
         getBikeList()
 
@@ -86,35 +85,21 @@ class ListFragment : Fragment() {
             }
         }
 
+        viewModel.eventOpenMenu.observe(
+            viewLifecycleOwner,
+        ) { openMenu ->
+            if (openMenu) {
+                onOpenMenu()
+                viewModel.onOpenMenuComplete()
+            }
+        }
+
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setUpList(view)
-//
-//        val menuHost: MenuHost = requireActivity()
-//
-//        menuHost.addMenuProvider(
-//            object : MenuProvider {
-//                override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
-//                    menuInflater.inflate(R.menu.navdrawer_menu, menu)
-//                }
-//
-//                override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
-//                    // Handle the menu selection
-//                    return when (menuItem.itemId) {
-//                        R.id.login_destination -> {
-//                            Toast.makeText(requireContext(), "yolo", Toast.LENGTH_LONG).show()
-//                            true
-//                        }
-//                        else -> false
-//                    }
-//                }
-//            },
-//            viewLifecycleOwner,
-//            Lifecycle.State.RESUMED,
-//        )
     }
 
     private fun setUpList(view: View) {
@@ -133,6 +118,10 @@ class ListFragment : Fragment() {
         } else {
             viewModel.saveList(Bikes(listFragmentArgs.bikeList?.bikes ?: mutableListOf()))
         }
+    }
+
+    private fun onOpenMenu() {
+        drawerLayout.openDrawer(GravityCompat.START)
     }
 
     private fun navigateToDetails(mode: Int, bike: Bike?) {

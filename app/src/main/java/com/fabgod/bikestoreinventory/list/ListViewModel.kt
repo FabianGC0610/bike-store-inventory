@@ -20,6 +20,9 @@ class ListViewModel : ViewModel() {
     private val _eventAddBike = MutableLiveData<Boolean>()
     val eventAddBike: LiveData<Boolean> get() = _eventAddBike
 
+    private val _eventOpenMenu = MutableLiveData<Boolean>()
+    val eventOpenMenu: LiveData<Boolean> get() = _eventOpenMenu
+
     fun saveList(bikes: Bikes) {
         _list.value = bikes
     }
@@ -42,5 +45,13 @@ class ListViewModel : ViewModel() {
 
     fun onAddBikeComplete() {
         _eventAddBike.value = false
+    }
+
+    fun onOpenMenu() {
+        _eventOpenMenu.value = true
+    }
+
+    fun onOpenMenuComplete() {
+        _eventOpenMenu.value = false
     }
 }

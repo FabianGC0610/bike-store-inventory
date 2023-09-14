@@ -68,7 +68,7 @@
                 android:clickable="true"
                 android:contentDescription="@string/menu_bar_menu_icon_description"
                 android:focusable="true"
-                android:onClick="@{() -> listViewModel}"
+                android:onClick="@{() -> listViewModel.onOpenMenu()}"
                 android:tooltipText="@string/menu_bar_open_menu_tooltip_text"
                 android:visibility="gone"
                 app:srcCompat="@drawable/menu_icon" />
