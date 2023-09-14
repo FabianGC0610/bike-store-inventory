@@ -5,7 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
+import androidx.core.view.GravityCompat
 import androidx.databinding.DataBindingUtil
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -16,7 +18,6 @@ import com.fabgod.bikestoreinventory.databinding.ListFragmentBinding
 import com.fabgod.bikestoreinventory.list.adapter.ListAdapter
 import com.fabgod.bikestoreinventory.list.model.Bike
 import com.fabgod.bikestoreinventory.list.model.Bikes
-import com.fabgod.bikestoreinventory.utils.SharedPreferencesInstance
 import com.fabgod.bikestoreinventory.utils.dummyBikeList
 
 /**
@@ -27,7 +28,7 @@ class ListFragment : Fragment() {
 
     private lateinit var viewModel: ListViewModel
     private lateinit var binding: ListFragmentBinding
-    private lateinit var session: SharedPreferencesInstance
+    private lateinit var viewModelFactory: ListViewModelFactory
     private lateinit var listAdapter: ListAdapter
     private var bikeList = dummyBikeList
 
@@ -47,18 +48,15 @@ class ListFragment : Fragment() {
         // Set the correct color for the status bar
         setUpStatusBar()
 
-        // Get SharedPreferencesInstance class to save and check session
-        session = SharedPreferencesInstance(requireActivity())
-
-        viewModel = ViewModelProvider(this)[ListViewModel::class.java]
+        viewModelFactory = ListViewModelFactory(R.id.drawerLayout)
+        viewModel = ViewModelProvider(this, viewModelFactory)[ListViewModel::class.java]
 
         binding.listViewModel = viewModel
         binding.lifecycleOwner = this
+        binding.menuBar.listViewModel = viewModel
+        binding.menuBar.lifecycleOwner = this
 
         binding.menuBar.menuIcon.visibility = View.VISIBLE
-        binding.menuBar.profileImage.setOnClickListener {
-            viewModel.onLogOut()
-        }
 
         getBikeList()
 
@@ -86,12 +84,12 @@ class ListFragment : Fragment() {
             }
         }
 
-        viewModel.eventLogOut.observe(
+        viewModel.eventOpenMenu.observe(
             viewLifecycleOwner,
-        ) { logOut ->
-            if (logOut) {
-                onLogOut()
-                viewModel.onLogOutComplete()
+        ) { openMenu ->
+            if (openMenu) {
+                onOpenMenu()
+                viewModel.onOpenMenuComplete()
             }
         }
 
@@ -121,10 +119,10 @@ class ListFragment : Fragment() {
         }
     }
 
-    private fun onLogOut() {
-        session.deleteSession()
-        val action = ListFragmentDirections.actionListToLogin()
-        findNavController().navigate(action)
+    private fun onOpenMenu() {
+        val drawerLayout =
+            requireActivity().findViewById<DrawerLayout>(viewModel.drawerLayoutId.value ?: 0)
+        drawerLayout.openDrawer(GravityCompat.START)
     }
 
     private fun navigateToDetails(mode: Int, bike: Bike?) {

@@ -1,15 +1,19 @@
 package com.fabgod.bikestoreinventory.list
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.fabgod.bikestoreinventory.list.model.Bike
 import com.fabgod.bikestoreinventory.list.model.Bikes
 
-class ListViewModel : ViewModel() {
+class ListViewModel(drawerLayoutId: Int) : ViewModel() {
 
     private val _list = MutableLiveData<Bikes>()
     val list: LiveData<Bikes> get() = _list
+
+    private val _drawerLayoutId = MutableLiveData<Int>()
+    val drawerLayoutId: LiveData<Int> get() = _drawerLayoutId
 
     private val _bikeSelected = MutableLiveData<Bike>()
     val bikeSelected: LiveData<Bike> get() = _bikeSelected
@@ -20,8 +24,13 @@ class ListViewModel : ViewModel() {
     private val _eventAddBike = MutableLiveData<Boolean>()
     val eventAddBike: LiveData<Boolean> get() = _eventAddBike
 
-    private val _eventLogOut = MutableLiveData<Boolean>()
-    val eventLogOut: LiveData<Boolean> get() = _eventLogOut
+    private val _eventOpenMenu = MutableLiveData<Boolean>()
+    val eventOpenMenu: LiveData<Boolean> get() = _eventOpenMenu
+
+    init {
+        Log.i("ListViewModel", "Drawer Layout Id gotten")
+        _drawerLayoutId.value = drawerLayoutId
+    }
 
     fun saveList(bikes: Bikes) {
         _list.value = bikes
@@ -47,11 +56,11 @@ class ListViewModel : ViewModel() {
         _eventAddBike.value = false
     }
 
-    fun onLogOut() {
-        _eventLogOut.value = true
+    fun onOpenMenu() {
+        _eventOpenMenu.value = true
     }
 
-    fun onLogOutComplete() {
-        _eventLogOut.value = false
+    fun onOpenMenuComplete() {
+        _eventOpenMenu.value = false
     }
 }
