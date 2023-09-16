@@ -69,4 +69,5 @@
     <string name="menu_bar_menu_icon_description">Menu</string>
     <string name="menu_bar_back_arrow_tooltip_text">Navigate Back</string>
     <string name="menu_bar_open_menu_tooltip_text">Open Menu</string>
+    <string name="list_bike_selected_tooltip_text">See bike details</string>
 </resources>
