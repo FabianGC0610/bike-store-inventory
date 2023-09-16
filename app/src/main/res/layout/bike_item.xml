@@ -3,6 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- For this item it was necessary to use ConstraintLayout since although it
+    looks simple it is better to have two LinearLayouts inside the Main LinearLayout to have
+    two columns, thus using only a single view-group, in this case the ConstraintLayout -->
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/bike_item_layout"
         android:layout_width="match_parent"

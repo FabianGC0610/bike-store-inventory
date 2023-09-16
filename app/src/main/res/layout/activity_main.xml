@@ -9,6 +9,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <!-- For this screen, which is our main activity, we only need to use LinearLayout
+        to add our fragment in charge of managing navigation, that is, our NavHostFragment -->
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"

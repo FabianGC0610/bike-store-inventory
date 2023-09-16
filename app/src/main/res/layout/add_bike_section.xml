@@ -10,34 +10,36 @@
             type="com.fabgod.bikestoreinventory.details.DetailsViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <!-- For this information entry screen to add a new bike it was not necessary to use a
+    ConstraintLayout since all the view elements are ordered in a single column -->
+
+    <LinearLayout
         android:id="@+id/add_bike_section_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
         android:visibility="gone"
         tools:visibility="visible">
 
         <TextView
             android:id="@+id/title"
             style="@style/DetailsTitleStyle"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/layout_margin"
             android:layout_marginTop="@dimen/layout_margin"
             android:layout_marginEnd="@dimen/layout_margin"
-            android:text="@string/add_bike_title"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:text="@string/add_bike_title" />
+
+        <!-- This small view-group (ConstraintLayout) which is a ConstraintLayout was necessary to
+        obtain the effect of two overlapping views -->
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/image_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/layout_margin_extra_large"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/title">
+            android:layout_gravity="center_horizontal">
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/bike_image_container"
@@ -77,14 +79,11 @@
         <TextView
             android:id="@+id/model_label"
             style="@style/DetailsInputLabelStyle"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/layout_margin_extra_large"
             android:layout_marginTop="@dimen/layout_margin"
-            android:text="@string/details_model_label"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/image_layout" />
+            android:text="@string/details_model_label" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/model_edit_layout"
@@ -92,10 +91,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/layout_margin"
-            android:layout_marginTop="@dimen/layout_margin_extra_small"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/model_label">
+            android:layout_marginTop="@dimen/layout_margin_extra_small">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/model_edit"
@@ -103,21 +99,28 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/add_bike_edit_text_model_hint"
                 android:inputType="text|textAutoComplete|textImeMultiLine"
-                android:text="@{detailsViewModel.model}"
+                android:text="@={detailsViewModel.model}"
                 android:textColor="@color/black_text_color" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
+            android:id="@+id/model_information"
+            style="@style/DetailsInputInformationStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="viewEnd"
+            android:layout_marginHorizontal="@dimen/layout_margin_extra_large"
+            android:layout_marginTop="@dimen/layout_margin_extra_small"
+            android:text="@={detailsViewModel.model}"
+            tools:text="Specilized"/>
+
+        <TextView
             android:id="@+id/wheel_size_label"
             style="@style/DetailsInputLabelStyle"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/layout_margin_extra_large"
-            android:layout_marginTop="@dimen/layout_margin"
-            android:text="@string/details_wheel_size_label"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/model_edit_layout" />
+            android:text="@string/details_wheel_size_label" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/wheel_size_edit_layout"
@@ -126,10 +129,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/layout_margin"
             android:layout_marginTop="@dimen/layout_margin_extra_small"
-            app:helperText="@string/add_bike_edit_text_wheel_size_helper_text"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/wheel_size_label">
+            app:helperText="@string/add_bike_edit_text_wheel_size_helper_text">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/wheel_size_edit"
@@ -137,21 +137,28 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/add_bike_edit_text_wheel_size_hint"
                 android:inputType="numberDecimal"
-                android:text="@{detailsViewModel.wheelSize}"
+                android:text="@={detailsViewModel.wheelSize}"
                 android:textColor="@color/black_text_color" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
+            android:id="@+id/wheel_size_information"
+            style="@style/DetailsInputInformationStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="viewEnd"
+            android:layout_marginHorizontal="@dimen/layout_margin_extra_large"
+            android:layout_marginTop="@dimen/layout_margin_extra_small"
+            android:text="@={detailsViewModel.wheelSize}"
+            tools:text="29"/>
+
+        <TextView
             android:id="@+id/color_label"
             style="@style/DetailsInputLabelStyle"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/layout_margin_extra_large"
-            android:layout_marginTop="@dimen/layout_margin"
-            android:text="@string/details_color_label"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/wheel_size_edit_layout" />
+            android:text="@string/details_color_label" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/color_edit_layout"
@@ -159,10 +166,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/layout_margin"
-            android:layout_marginTop="@dimen/layout_margin_extra_small"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/color_label">
+            android:layout_marginTop="@dimen/layout_margin_extra_small">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/color_edit"
@@ -170,21 +174,28 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/add_bike_edit_text_color_hint"
                 android:inputType="text|textAutoComplete|textAutoCorrect"
-                android:text="@{detailsViewModel.color}"
+                android:text="@={detailsViewModel.color}"
                 android:textColor="@color/black_text_color" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
+            android:id="@+id/color_information"
+            style="@style/DetailsInputInformationStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="viewEnd"
+            android:layout_marginHorizontal="@dimen/layout_margin_extra_large"
+            android:layout_marginTop="@dimen/layout_margin_extra_small"
+            android:text="@={detailsViewModel.color}"
+            tools:text="Green/Black"/>
+
+        <TextView
             android:id="@+id/size_label"
             style="@style/DetailsInputLabelStyle"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/layout_margin_extra_large"
-            android:layout_marginTop="@dimen/layout_margin"
-            android:text="@string/details_bike_size_label"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/color_edit_layout" />
+            android:text="@string/details_bike_size_label" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/size_edit_layout"
@@ -193,10 +204,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/layout_margin"
             android:layout_marginTop="@dimen/layout_margin_extra_small"
-            app:helperText="@string/add_bike_edit_text_size_helper_text"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/size_label">
+            app:helperText="@string/add_bike_edit_text_size_helper_text">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/size_edit"
@@ -204,21 +212,28 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/add_bike_edit_text_size_hint"
                 android:inputType="text|textCapCharacters"
-                android:text="@{detailsViewModel.size}"
+                android:text="@={detailsViewModel.size}"
                 android:textColor="@color/black_text_color" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
+            android:id="@+id/size_information"
+            style="@style/DetailsInputInformationStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="viewEnd"
+            android:layout_marginHorizontal="@dimen/layout_margin_extra_large"
+            android:layout_marginTop="@dimen/layout_margin_extra_small"
+            android:text="@={detailsViewModel.size}"
+            tools:text="XL"/>
+
+        <TextView
             android:id="@+id/price_label"
             style="@style/DetailsInputLabelStyle"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/layout_margin_extra_large"
-            android:layout_marginTop="@dimen/layout_margin"
-            android:text="@string/details_price_label"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/size_edit_layout" />
+            android:text="@string/details_price_label" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/price_edit_layout"
@@ -227,9 +242,6 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/layout_margin"
             android:layout_marginTop="@dimen/layout_margin_extra_small"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/price_label"
             app:prefixText="$">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -238,14 +250,25 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/add_bike_edit_text_price_hint"
                 android:inputType="numberDecimal"
-                android:text="@{detailsViewModel.price}"
+                android:text="@={detailsViewModel.price}"
                 android:textColor="@color/black_text_color" />
         </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/price_information"
+            style="@style/DetailsInputInformationStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="viewEnd"
+            android:layout_marginHorizontal="@dimen/layout_margin_extra_large"
+            android:layout_marginTop="@dimen/layout_margin_extra_small"
+            android:text="@={detailsViewModel.price}"
+            tools:text="$10,000.00"/>
 
         <Button
             android:id="@+id/add_button"
             style="@style/BottomButtonStyle"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="@dimen/button_height"
             android:layout_marginHorizontal="@dimen/layout_margin"
             android:layout_marginTop="@dimen/layout_margin_xxx_large"
@@ -254,12 +277,8 @@
             android:onClick="@{() -> detailsViewModel.onBikeAdded()}"
             android:text="@string/add_bike_button_title"
             android:textColor="@color/white_text_color"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/price_edit_layout"
             app:strokeColor="@color/white_text_color" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 
 </layout>

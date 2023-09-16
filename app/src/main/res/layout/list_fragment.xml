@@ -11,7 +11,11 @@
             type="com.fabgod.bikestoreinventory.list.ListViewModel" />
     </data>
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
+    <!-- For this screen I had to use ConstraintLayout to be able to have the
+    FloatingActionButton always in the bottom corner and at the same time have the
+    views on top of each other when Scrolling -->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/list_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -19,19 +23,28 @@
 
         <include
             android:id="@+id/menu_bar"
-            layout="@layout/menu_bar" />
+            layout="@layout/menu_bar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.core.widget.NestedScrollView
+            android:id="@+id/nestedScrollView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/menu_bar_size"
-            app:layout_anchor="@id/menu_bar"
-            app:layout_anchorGravity="bottom">
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/menu_bar">
+
+            <!-- Here only items will be displayed one below the other vertically, a
+            LinearLayout solves this -->
 
             <LinearLayout
                 android:id="@+id/bikes_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/layout_margin_small"
                 android:orientation="vertical">
 
                 <com.google.android.material.card.MaterialCardView
@@ -43,20 +56,12 @@
                     android:layout_marginTop="@dimen/layout_margin"
                     android:layout_marginBottom="@dimen/layout_margin_large"
                     android:layout_weight="0.5"
-                    android:backgroundTint="@color/list_background"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
+                    android:backgroundTint="@color/list_background">
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/bikes_list"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
                         tools:itemCount="5"
                         tools:listitem="@layout/bike_item" />
 
@@ -73,10 +78,13 @@
             android:layout_gravity="end|bottom"
             android:layout_margin="@dimen/layout_margin"
             android:backgroundTint="@color/colorSecondary"
+            android:contentDescription="@string/list_add_new_bike_button_tooltip_text"
             android:onClick="@{() -> listViewModel.onAddBike()}"
             android:src="@drawable/add_item_icon"
-            android:tooltipText="@string/list_add_new_bike_button_tooltip_text" />
+            android:tooltipText="@string/list_add_new_bike_button_tooltip_text"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

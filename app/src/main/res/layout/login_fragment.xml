@@ -16,24 +16,25 @@
         android:layout_height="match_parent"
         android:fillViewport="true">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <!-- For the login screen it was necessary to use only two LinearLayouts, both
+        in vertical orientation, since everything is displayed in a single row, the extra
+        LinearLayout was necessary to have a cardView and contain all the data entry views
+        without having the cardView as separate view in the main LinearLayout -->
+
+        <LinearLayout
             android:id="@+id/login_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="vertical"
             android:background="@color/background">
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/input_layout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
                 android:backgroundTint="@color/background"
-                app:cardElevation="0dp"
-                app:layout_constraintBottom_toTopOf="@+id/login_button"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_chainStyle="spread_inside">
+                app:cardElevation="0dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -46,6 +47,7 @@
                         android:id="@+id/bike_image"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/layout_margin_xx_large"
                         android:layout_gravity="center_horizontal"
                         android:contentDescription="@string/login_store_image_description"
                         app:srcCompat="@drawable/main_bike_image"
@@ -55,7 +57,8 @@
                         android:id="@+id/login_title"
                         style="@style/LoginTitleStyle"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/login_text_height"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
                         android:layout_marginBottom="@dimen/layout_margin_extra_large"
                         android:text="@string/store_name"
                         android:textAlignment="center" />
@@ -122,7 +125,7 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/login_button"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="@dimen/button_height"
                 android:layout_marginHorizontal="@dimen/layout_margin"
                 android:layout_marginTop="@dimen/layout_margin"
@@ -131,18 +134,12 @@
                 android:onClick="@{() -> loginViewModel.onLogIn()}"
                 android:text="@string/login_log_in_button_title"
                 android:textSize="@dimen/text_size_small"
-                app:cornerRadius="@dimen/corner_radius_size_small"
-                app:layout_constraintBottom_toTopOf="@+id/signup_button"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/input_layout"
-                app:layout_constraintVertical_chainStyle="packed" />
+                app:cornerRadius="@dimen/corner_radius_size_small" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/signup_button"
                 style="?attr/materialButtonOutlinedStyle"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="@dimen/button_height"
                 android:layout_marginHorizontal="@dimen/layout_margin"
                 android:layout_marginBottom="@dimen/layout_margin"
@@ -151,14 +148,10 @@
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="@dimen/text_size_small"
                 app:cornerRadius="@dimen/corner_radius_size_small"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
                 app:strokeColor="@color/colorPrimaryDark"
                 app:strokeWidth="@dimen/box_stroke_width" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
 
     </ScrollView>
 

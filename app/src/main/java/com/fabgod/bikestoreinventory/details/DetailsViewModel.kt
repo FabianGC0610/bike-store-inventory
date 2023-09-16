@@ -28,19 +28,19 @@ class DetailsViewModel(mode: Int, bikeList: Bikes?, bike: Bike?) : ViewModel() {
     val isFormValid: LiveData<Boolean> get() = _isFormValid
 
     private val _model = MutableLiveData<String>()
-    val model: LiveData<String> get() = _model
+    val model: MutableLiveData<String> get() = _model
 
     private val _wheelSize = MutableLiveData<String>()
-    val wheelSize: LiveData<String> get() = _wheelSize
+    val wheelSize: MutableLiveData<String> get() = _wheelSize
 
     private val _color = MutableLiveData<String>()
-    val color: LiveData<String> get() = _color
+    val color: MutableLiveData<String> get() = _color
 
     private val _size = MutableLiveData<String>()
-    val size: LiveData<String> get() = _size
+    val size: MutableLiveData<String> get() = _size
 
     private val _price = MutableLiveData<String>()
-    val price: LiveData<String> get() = _price
+    val price: MutableLiveData<String> get() = _price
 
     private val _list = MutableLiveData<Bikes>()
     val list: LiveData<Bikes> get() = _list

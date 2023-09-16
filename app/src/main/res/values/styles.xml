@@ -118,6 +118,12 @@
         <item name="android:textColor">@color/grey_text_color</item>
     </style>
 
+    <style name="DetailsInputInformationStyle">
+        <item name="android:fontFamily">@font/amiko_semibold</item>
+        <item name="android:textSize">@dimen/text_size_extra_small</item>
+        <item name="android:textColor">@color/grey_text_color</item>
+    </style>
+
     <style name="DetailsInformationStyle">
         <item name="android:fontFamily">@font/amiko_semibold</item>
         <item name="android:textStyle">bold</item>

@@ -55,7 +55,7 @@ class DetailsFragment : Fragment() {
         )
         viewModel = ViewModelProvider(this, viewModelFactory)[DetailsViewModel::class.java]
 
-        binding.menuBar.backArrow.visibility = View.VISIBLE
+        binding.menuBar.backArrowImageContainer.visibility = View.VISIBLE
 
         setUpBindingWithViewModel()
 

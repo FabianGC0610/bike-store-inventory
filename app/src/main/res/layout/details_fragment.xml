@@ -4,10 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".details.DetailsFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <!-- For this screen, which is like a two-screen moderator (add bike and bike details),
+    it was necessary to use a simple LinearLayout since all the views are arranged vertically,
+    none sharing the same row -->
+
+    <LinearLayout
         android:id="@+id/details_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
         android:background="@color/background">
 
         <include
@@ -19,34 +24,33 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:fillViewport="true"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/menu_bar">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <!-- I have to use another LinearLayout inside to share the same ScrollView for
+            our two screens (add bike and bike details), with this I just set de visibility
+            for each child screen when I need to show one of them-->
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
                 <include
                     android:id="@+id/details_section"
                     layout="@layout/details_section"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
                     tools:visibility="gone"/>
 
                 <include
                     android:id="@+id/add_bike_section"
-                    layout="@layout/add_bike_section"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    layout="@layout/add_bike_section" />
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
 
         </ScrollView>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 
 </layout>

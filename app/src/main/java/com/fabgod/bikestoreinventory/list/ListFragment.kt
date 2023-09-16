@@ -56,7 +56,7 @@ class ListFragment : Fragment() {
         binding.menuBar.listViewModel = viewModel
         binding.menuBar.lifecycleOwner = this
 
-        binding.menuBar.menuIcon.visibility = View.VISIBLE
+        binding.menuBar.menuIconImageContainer.visibility = View.VISIBLE
 
         getBikeList()
 

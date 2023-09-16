@@ -11,6 +11,10 @@
             type="com.fabgod.bikestoreinventory.instructions.InstructionsViewModel" />
     </data>
 
+    <!-- For this screen it was necessary to use ConstraintLayout since each group of instructions
+    has a TextView and an Image horizontally, this is better than having a LinearLayout for each group
+    of instructions to be able to have the TextView next to the image -->
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/instructions_layout"
         android:layout_width="match_parent"

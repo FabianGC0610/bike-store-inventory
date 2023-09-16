@@ -14,23 +14,28 @@
             type="com.fabgod.bikestoreinventory.list.ListViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <!-- For my custom menu I was able to use a simple LinearLayout in horizontal orientation,
+    since I only had to show three elements in the menu, which should not interpose or share
+    the same column -->
+
+    <LinearLayout
         android:id="@+id/menu_bar_layout"
         android:layout_width="match_parent"
         android:layout_height="@dimen/menu_bar_size"
-        android:background="@color/colorSecondary">
+        android:background="@color/colorSecondary"
+        android:orientation="horizontal">
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/back_arrow_image_container"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
             android:layout_marginStart="@dimen/layout_margin"
             android:backgroundTint="@color/colorSecondary"
+            android:visibility="gone"
             app:cardCornerRadius="@dimen/icon_corner_radius_size"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:strokeWidth="0dp">
+            app:strokeWidth="0dp"
+            tools:visibility="visible">
 
             <ImageView
                 android:id="@+id/back_arrow"
@@ -42,9 +47,7 @@
                 android:focusable="true"
                 android:onClick="@{() -> detailsViewModel.onBackAction()}"
                 android:tooltipText="@string/menu_bar_back_arrow_tooltip_text"
-                android:visibility="gone"
-                app:srcCompat="@drawable/back_arrow"
-                tools:visibility="visible" />
+                app:srcCompat="@drawable/back_arrow" />
 
         </com.google.android.material.card.MaterialCardView>
 
@@ -52,12 +55,11 @@
             android:id="@+id/menu_icon_image_container"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
             android:layout_marginStart="@dimen/layout_margin"
             android:backgroundTint="@color/colorSecondary"
+            android:visibility="gone"
             app:cardCornerRadius="@dimen/icon_corner_radius_size"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
             app:strokeWidth="0dp">
 
             <ImageView
@@ -70,7 +72,6 @@
                 android:focusable="true"
                 android:onClick="@{() -> listViewModel.onOpenMenu()}"
                 android:tooltipText="@string/menu_bar_open_menu_tooltip_text"
-                android:visibility="gone"
                 app:srcCompat="@drawable/menu_icon" />
 
         </com.google.android.material.card.MaterialCardView>
@@ -78,26 +79,24 @@
         <TextView
             android:id="@+id/title"
             style="@style/ListTitleStyle"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="@dimen/layout_margin_small"
+            android:layout_weight="1"
             android:text="@string/store_name"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:textAlignment="center" />
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/profile_image_container"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
             android:layout_marginEnd="@dimen/layout_margin"
             android:background="?attr/selectableItemBackground"
             android:clickable="true"
             android:focusable="true"
-            app:cardCornerRadius="@dimen/icon_corner_radius_size"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:cardCornerRadius="@dimen/icon_corner_radius_size">
 
             <ImageView
                 android:id="@+id/profile_image"
@@ -108,6 +107,6 @@
 
         </com.google.android.material.card.MaterialCardView>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 
 </layout>
