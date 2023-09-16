@@ -5,12 +5,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.fabgod.bikestoreinventory.list.model.Bike
-import com.fabgod.bikestoreinventory.list.model.Bikes
 
 class ListViewModel(drawerLayoutId: Int) : ViewModel() {
-
-    private val _list = MutableLiveData<Bikes>()
-    val list: LiveData<Bikes> get() = _list
 
     private val _drawerLayoutId = MutableLiveData<Int>()
     val drawerLayoutId: LiveData<Int> get() = _drawerLayoutId
@@ -30,10 +26,6 @@ class ListViewModel(drawerLayoutId: Int) : ViewModel() {
     init {
         Log.i("ListViewModel", "Drawer Layout Id gotten")
         _drawerLayoutId.value = drawerLayoutId
-    }
-
-    fun saveList(bikes: Bikes) {
-        _list.value = bikes
     }
 
     fun saveBikeSelected(bike: Bike) {

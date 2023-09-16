@@ -81,11 +81,6 @@
             app:popExitAnim="@anim/slide_in_top"
             app:popUpTo="@id/list_destination"
             app:popUpToInclusive="true" />
-        <argument
-            android:name="bike_list"
-            android:defaultValue="@null"
-            app:argType="com.fabgod.bikestoreinventory.list.model.Bikes"
-            app:nullable="true" />
     </fragment>
 
     <fragment
@@ -110,11 +105,6 @@
             android:name="bike"
             android:defaultValue="@null"
             app:argType="com.fabgod.bikestoreinventory.list.model.Bike"
-            app:nullable="true" />
-        <argument
-            android:name="bike_list"
-            android:defaultValue="@null"
-            app:argType="com.fabgod.bikestoreinventory.list.model.Bikes"
             app:nullable="true" />
     </fragment>
 

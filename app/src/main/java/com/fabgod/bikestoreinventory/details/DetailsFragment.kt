@@ -11,11 +11,11 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.fabgod.bikestoreinventory.MainActivityViewModel
 import com.fabgod.bikestoreinventory.R
 import com.fabgod.bikestoreinventory.databinding.DetailsFragmentBinding
 import com.fabgod.bikestoreinventory.list.ListFragment
 import com.fabgod.bikestoreinventory.list.model.Bike
-import com.fabgod.bikestoreinventory.list.model.Bikes
 import com.fabgod.bikestoreinventory.utils.getRandomBikeImageResource
 import com.fabgod.bikestoreinventory.utils.toBalanceFormat
 import com.google.android.material.textfield.TextInputLayout
@@ -26,6 +26,7 @@ import com.google.android.material.textfield.TextInputLayout
 class DetailsFragment : Fragment() {
 
     private lateinit var viewModel: DetailsViewModel
+    private lateinit var activityViewModel: MainActivityViewModel
     private lateinit var binding: DetailsFragmentBinding
     private lateinit var viewModelFactory: DetailsViewModelFactory
     private val bikeImageToAdd = getRandomBikeImageResource()
@@ -48,9 +49,9 @@ class DetailsFragment : Fragment() {
 
         val detailsFragmentArgs by navArgs<DetailsFragmentArgs>()
 
+        activityViewModel = ViewModelProvider(requireActivity())[MainActivityViewModel::class.java]
         viewModelFactory = DetailsViewModelFactory(
             detailsFragmentArgs.mode,
-            detailsFragmentArgs.bikeList ?: Bikes(),
             detailsFragmentArgs.bike ?: Bike(),
         )
         viewModel = ViewModelProvider(this, viewModelFactory)[DetailsViewModel::class.java]
@@ -92,7 +93,7 @@ class DetailsFragment : Fragment() {
             viewLifecycleOwner,
         ) { isFormValid ->
             if (isFormValid) {
-                viewModel.addBikeToList(getBikeDataToAdd())
+                activityViewModel.addBikeToList(getBikeDataToAdd())
                 onBikeAdded()
                 viewModel.onBikeAddedComplete()
             }
@@ -262,7 +263,7 @@ class DetailsFragment : Fragment() {
     }
 
     private fun onBikeAdded() {
-        val action = DetailsFragmentDirections.actionDetailsToList(viewModel.list.value)
+        val action = DetailsFragmentDirections.actionDetailsToList()
         findNavController().navigate(action)
     }
 

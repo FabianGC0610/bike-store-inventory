@@ -5,9 +5,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.fabgod.bikestoreinventory.list.model.Bike
-import com.fabgod.bikestoreinventory.list.model.Bikes
 
-class DetailsViewModel(mode: Int, bikeList: Bikes?, bike: Bike?) : ViewModel() {
+class DetailsViewModel(mode: Int, bike: Bike?) : ViewModel() {
 
     private val _modelValidationState = MutableLiveData<FieldState>()
     val modelValidationState: LiveData<FieldState> get() = _modelValidationState
@@ -42,9 +41,6 @@ class DetailsViewModel(mode: Int, bikeList: Bikes?, bike: Bike?) : ViewModel() {
     private val _price = MutableLiveData<String>()
     val price: MutableLiveData<String> get() = _price
 
-    private val _list = MutableLiveData<Bikes>()
-    val list: LiveData<Bikes> get() = _list
-
     private val _bike = MutableLiveData<Bike>()
     val bike: LiveData<Bike> get() = _bike
 
@@ -60,12 +56,7 @@ class DetailsViewModel(mode: Int, bikeList: Bikes?, bike: Bike?) : ViewModel() {
     init {
         Log.i("DetailsViewModel", "Mode and Bike List gotten")
         _mode.value = mode
-        _list.value = bikeList ?: Bikes()
         _bike.value = bike ?: Bike()
-    }
-
-    fun addBikeToList(bike: Bike) {
-        list.value?.bikes?.add(bike)
     }
 
     fun validateForm() {

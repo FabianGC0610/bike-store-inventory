@@ -18,7 +18,7 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.fragment.navArgs
+import com.fabgod.bikestoreinventory.MainActivityViewModel
 import com.fabgod.bikestoreinventory.R
 import com.fabgod.bikestoreinventory.databinding.ListFragmentBinding
 import com.fabgod.bikestoreinventory.list.model.Bike
@@ -33,6 +33,7 @@ import com.google.android.material.card.MaterialCardView
 class ListFragment : Fragment() {
 
     private lateinit var viewModel: ListViewModel
+    private lateinit var activityViewModel: MainActivityViewModel
     private lateinit var binding: ListFragmentBinding
     private lateinit var viewModelFactory: ListViewModelFactory
     private var bikeList = dummyBikeList
@@ -53,6 +54,7 @@ class ListFragment : Fragment() {
         // Set the correct color for the status bar
         setUpStatusBar()
 
+        activityViewModel = ViewModelProvider(requireActivity())[MainActivityViewModel::class.java]
         viewModelFactory = ListViewModelFactory(R.id.drawerLayout)
         viewModel = ViewModelProvider(this, viewModelFactory)[ListViewModel::class.java]
 
@@ -109,7 +111,7 @@ class ListFragment : Fragment() {
 
     @RequiresApi(Build.VERSION_CODES.O)
     private fun setUpList() {
-        for (bike in viewModel.list.value?.bikes ?: mutableListOf()) {
+        for (bike in activityViewModel.list.value?.bikes ?: mutableListOf()) {
             val constraintLayout = createBikeItem(bike)
             binding.bikesLayout.addView(constraintLayout)
         }
@@ -215,11 +217,8 @@ class ListFragment : Fragment() {
     }
 
     private fun getBikeList() {
-        val listFragmentArgs by navArgs<ListFragmentArgs>()
-        if (listFragmentArgs.bikeList == null) {
-            viewModel.saveList(Bikes(bikeList))
-        } else {
-            viewModel.saveList(Bikes(listFragmentArgs.bikeList?.bikes ?: mutableListOf()))
+        if (activityViewModel.list.value == null) {
+            activityViewModel.saveList(Bikes(bikeList))
         }
     }
 
@@ -230,7 +229,7 @@ class ListFragment : Fragment() {
     }
 
     private fun navigateToDetails(mode: Int, bike: Bike?) {
-        val action = ListFragmentDirections.actionListToDetails(mode, bike, viewModel.list.value)
+        val action = ListFragmentDirections.actionListToDetails(mode, bike)
         findNavController().navigate(action)
     }
 
